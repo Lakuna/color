@@ -1,0 +1,59 @@
+{
+	"name": "@lakuna/color",
+	"version": "1.0.0",
+	"description": "A library for various color-related operations.",
+	"homepage": "https://color.lakuna.pw",
+	"bugs": {
+		"url": "https://github.com/Lakuna/color/issues",
+		"email": "travis@lakuna.pw"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Travis Martin",
+		"email": "travis@lakuna.pw",
+		"url": "https://www.lakuna.pw/"
+	},
+	"funding": {
+		"type": "individual",
+		"url": "https://github.com/sponsors/Lakuna"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"repository": {
+		"type": "git",
+		"url": "github:Lakuna/color"
+	},
+	"scripts": {
+		"build": "tsc",
+		"lint": "eslint src",
+		"doc": "typedoc src",
+		"test": "mocha",
+		"beautify": "prettier . --write"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.9.1",
+		"@types/chai": "^4.3.19",
+		"@types/eslint": "^9.6.1",
+		"@types/eslint__js": "^8.42.3",
+		"@types/eslint-config-prettier": "^6.11.3",
+		"@types/mocha": "^10.0.7",
+		"chai": "^5.1.1",
+		"eslint": "^9.9.1",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-tsdoc": "^0.3.0",
+		"mocha": "^10.7.3",
+		"prettier": "^3.3.3",
+		"typedoc": "^0.26.6",
+		"typescript": "^5.5.4",
+		"typescript-eslint": "^8.3.0"
+	},
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"sideEffects": false
+}
