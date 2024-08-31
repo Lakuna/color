@@ -3,18 +3,18 @@ export { default } from "./core/Color.js";
 
 // Names
 export { default as bangNames } from "./names/bangNames.js";
+export { default as bigNames } from "./names/bigNames.js";
 export { default as css3Names } from "./names/css3Names.js";
 export { default as getName } from "./names/getName.js";
+export { default as hollaschNames } from "./names/hollaschNames.js";
 export { default as html4Names } from "./names/html4Names.js";
+export { default as mediumNames } from "./names/mediumNames.js";
+export { default as ns3Names } from "./names/ns3Names.js";
 export { default as oldRgbNames } from "./names/oldRgbNames.js";
 export { default as ravelingNames } from "./names/ravelingNames.js";
+export { default as smallNames } from "./names/smallNames.js";
 export { default as thomasNames } from "./names/thomasNames.js";
 export { default as x11Names } from "./names/x11Names.js";
-// TODO: ns3: https://people.csail.mit.edu/jaffer/Color/ns3.pdf
-// TODO: hollasch: https://people.csail.mit.edu/jaffer/Color/hollasch.pdf
-// TODO: big: https://people.csail.mit.edu/jaffer/Color/big.pdf
-// TODO: medium: https://people.csail.mit.edu/jaffer/Color/medium.pdf
-// TODO: small: https://people.csail.mit.edu/jaffer/Color/small.pdf
 // TODO: resene: https://people.csail.mit.edu/jaffer/Color/resene.pdf
 // TODO: Name That Color: https://people.csail.mit.edu/jaffer/Color/ntc.pdf
 // TODO: resene-2010: https://people.csail.mit.edu/jaffer/Color/resene-2010.pdf

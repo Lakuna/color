@@ -5,20 +5,23 @@ import fromHex from "../dist/utility/fromHex.js";
 import luminance from "../dist/utility/luminance.js";
 
 describe("contrast", () => {
-	it("should return `contrast(fromHex(0x000000), fromHex(0xffffff)) = 21`", () => {
-		expect(contrast(fromHex(0x000000), fromHex(0xffffff))).to.equal(21);
+	const black = fromHex(0x000000);
+	const white = fromHex(0xffffff);
+
+	it("should return `contrast(black, white) = 21`", () => {
+		expect(contrast(black, white)).to.equal(21);
 	});
 
-	it("should return `contrast(fromHex(0xffffff), fromHex(0x000000)) = 21`", () => {
-		expect(contrast(fromHex(0xffffff), fromHex(0x000000))).to.equal(21);
+	it("should return `contrast(white, black) = 21`", () => {
+		expect(contrast(white, black)).to.equal(21);
 	});
 
-	it("should return `contrast(fromHex(0x000000), fromHex(0x000000)) = 1`", () => {
-		expect(contrast(fromHex(0x000000), fromHex(0x000000))).to.equal(1);
+	it("should return `contrast(black, black) = 1`", () => {
+		expect(contrast(black, black)).to.equal(1);
 	});
 
-	it("should return `contrast(fromHex(0xffffff), fromHex(0xffffff)) = 1`", () => {
-		expect(contrast(fromHex(0xffffff), fromHex(0xffffff))).to.equal(1);
+	it("should return `contrast(white, white) = 1`", () => {
+		expect(contrast(white, white)).to.equal(1);
 	});
 });
 
