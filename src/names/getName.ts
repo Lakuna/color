@@ -1,4 +1,5 @@
 import type ColorLike from "../types/ColorLike.js";
+import ntcNames from "./ntcNames.js";
 import squaredDistance from "../utility/squaredRgbDistance.js";
 
 /**
@@ -10,12 +11,12 @@ import squaredDistance from "../utility/squaredRgbDistance.js";
  */
 export default function getName(
 	color: ColorLike,
-	names: Map<ColorLike, string>
+	names: Map<string, ColorLike> = ntcNames
 ): string {
-	let [, nearestName] = names.entries().next().value as [ColorLike, string];
+	let [nearestName] = names.entries().next().value as [string, ColorLike];
 	let nearestSqDist = Infinity;
 
-	for (const [otherColor, name] of names.entries()) {
+	for (const [name, otherColor] of names.entries()) {
 		const sqDist = squaredDistance(color, otherColor);
 
 		if (nearestSqDist < sqDist) {
