@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The CNE core 2007 color name dictionary.
+ * Color Naming Experiment. A subset of the full experiment containing only the most widely-used colors. An improvement over X11. Good for light sources and mediocre for surface colors.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#cne-core-2007 | Color-Name Dictionaries}
  * @public
  */
 const cneCore2007Names: Map<string, ColorLike> = new Map<string, ColorLike>([

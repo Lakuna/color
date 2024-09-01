@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * John C. Thomas' color name dictionary.
+ * `thomas.txt` from the X11 window system distribution. A huge improvement over `old-rgb.txt`. A version of the older database that was tuned by John Thomas at Tektronix to match a box of Crayola crayons.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#thomas | Color-Name Dictionaries}
  * @public
  */
 const thomasNames: Map<string, ColorLike> = new Map<string, ColorLike>([

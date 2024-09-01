@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The medium color name dictionary.
+ * Two4U's Medium Color Database. A `rgb-old.txt` with 28 additional colors and different values for "orange" and "orangered."
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#medium | Color-Name Dictionaries}
  * @public
  */
 const mediumNames: Map<string, ColorLike> = new Map<string, ColorLike>([

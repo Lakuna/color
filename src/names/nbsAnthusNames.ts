@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The NBS Anthus color name dictionary.
+ * NBS/ISCC Dictionary of Color Names. Computerized by David Mundie. Contains many human errors.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#nbs-anthus | Color-Name Dictionaries}
  * @public
  */
 const nbsAnthusNames: Map<string, ColorLike> = new Map<string, ColorLike>([

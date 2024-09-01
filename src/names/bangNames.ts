@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The Bang color name dictionary.
+ * Bang's RGB color names. The darkest RGB octant has more colors than x11, but the midtones are sparse. Similar to nbs-iscc.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#bang | Color-Name Dictionaries}
  * @public
  */
 const bangNames: Map<string, ColorLike> = new Map<string, ColorLike>([

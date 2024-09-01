@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The NS3 color name dictionary.
+ * Netscape Color Names. A subset of `rgb.txt` with different gray and green values, plus "lightslate" ("light slate blue") and "mediumviolet" ("medium violet red").
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#ns3 | Color-Name Dictionaries}
  * @public
  */
 const ns3Names: Map<string, ColorLike> = new Map<string, ColorLike>([

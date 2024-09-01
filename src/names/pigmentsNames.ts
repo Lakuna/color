@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The pigments color name dictionary.
+ * Pigments through the Ages. All non-white pigments are fairly dark. Insufficient variety of distinct colors for computer use.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#pigments | Color-Name Dictionaries}
  * @public
  */
 const pigmentsNames: Map<string, ColorLike> = new Map<string, ColorLike>([

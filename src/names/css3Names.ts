@@ -2,8 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The CSS3 color name dictionary.
- * @see {@link https://www.w3.org/TR/css-color-3/ | CSS Color Module Level 3}
+ * The CSS3 Color Module Level 3. Supports both HTML4 color keywords and X11COLORS. Worse than x11.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#CSS3 | Color-Name Dictionaries}
  * @public
  */
 const css3Names: Map<string, ColorLike> = new Map<string, ColorLike>([

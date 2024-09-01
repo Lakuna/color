@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The X11 window system distribution color name dictionary.
+ * `rgb.txt` from the X11 window system distribution. Most colors are too bright. Suitable for light sources, but poorly suited for surface colors.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#x11 | Color-Name Dictionaries}
  * @public
  */
 const x11Names: Map<string, ColorLike> = new Map<string, ColorLike>([

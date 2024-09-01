@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * Paul Raveling's color name dictionary.
+ * `raveling.txt` from the X11 window system distribution. A near ancestor of `rgb.txt`. Tuned by Paul Raveling at ISI for the HP monitor. Cluttered with "clusters" of colors. Suitable for light sources, but poorly suited for surface colors.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#raveling | Color-Name Dictionaries}
  * @public
  */
 const ravelingNames: Map<string, ColorLike> = new Map<string, ColorLike>([

@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The Resene 2010 color name dictionary.
+ * Resene-2010 Paint Colors. Identical to Resene-2007 Paint Colors aside from "aluminum," "chamois," and "mahogany." The whitepoint and blackpoint have been moderated since the 2001 version. Excellent source for surface colors.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#resene-2010 | Color-Name Dictionaries}
  * @public
  */
 const resene2010Names: Map<string, ColorLike> = new Map<string, ColorLike>([

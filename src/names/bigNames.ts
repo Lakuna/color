@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The big color name dictionary.
+ * Two4U's Big Color Database. A replica of `rgb.txt` with the addition of "light" ("light goldenrod"), "medium" ("medium aquamarine"), and "pale" ("pale violet red").
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#big | Color-Name Dictionaries}
  * @public
  */
 const bigNames: Map<string, ColorLike> = new Map<string, ColorLike>([

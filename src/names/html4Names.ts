@@ -2,8 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The HTML4 color name dictionary.
- * @see {@link https://www.w3.org/TR/REC-html40/sgml/loosedtd.html | HTML 4.01 Transitional Document Type Definition}
+ * The HTML-3.2 and HTML-4 Color Names. Use of this color dictionary is not recommended.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#html-4 | Color-Name Dictionaries}
  * @public
  */
 const html4Names: Map<string, ColorLike> = new Map<string, ColorLike>([

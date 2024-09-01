@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The small color name dictionary.
+ * Two4U's Small Color Database. A subset of Two4U's Medium Color Database.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#small | Color-Name Dictionaries}
  * @public
  */
 const smallNames: Map<string, ColorLike> = new Map<string, ColorLike>([

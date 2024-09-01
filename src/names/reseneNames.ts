@@ -2,7 +2,8 @@ import type ColorLike from "../types/ColorLike.js";
 import fromHex from "../utility/fromHex.js";
 
 /**
- * The Resene color name dictionary.
+ * Resene Paint Colors. Fills a large volume of the CIELAB space uniformly. Primaries are absent, as they should be for physically realizable paints. Most names are specific to Resene. Excellent for surface colors.
+ * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#resene | Color-Name Dictionaries}
  * @public
  */
 const reseneNames: Map<string, ColorLike> = new Map<string, ColorLike>([
