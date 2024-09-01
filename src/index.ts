@@ -37,14 +37,14 @@ export type { default as ColorLike } from "./types/ColorLike.js";
 export { default as contrast } from "./utility/contrast.js";
 export { default as createColorLike } from "./utility/createColorLike.js";
 export { default as fromHex } from "./utility/fromHex.js";
-export { default as fromRgba } from "./utility/fromRgba.js";
+export { default as fromHsl } from "./utility/fromHsl.js";
+export { default as fromRgb } from "./utility/fromRgb.js";
 export { default as luminance } from "./utility/luminance.js";
 export { default as squaredRgbDistance } from "./utility/squaredRgbDistance.js";
+export { default as toHsl } from "./utility/toHsl.js";
 // TODO: Lightest background color.
 // TODO: Darkest background color.
 // TODO: Optimal (sensible?) background color.
-// TODO: From HSL.
-// TODO: To HSL.
 // TODO: To hexadecimal.
 // TODO: From HSV.
 // TODO: To HSV.
@@ -52,6 +52,19 @@ export { default as squaredRgbDistance } from "./utility/squaredRgbDistance.js";
 // TODO: To CMYK.
 // TODO: From XYZ.
 // TODO: To XYZ.
+// TODO: From YIQ.
+// TODO: To YIQ.
+// TODO: From CIE-LAB.
+// TODO: TO CIE-LAB.
+// TODO: From xyY.
+// TODO: To xyY.
+// TODO: From CIE-LCH.
+// TODO: To CIE-LCH.
+// TODO: From CIE-LUV.
+// TODO: To CIE-LUV.
+// TODO: From Hunter-Lab.
+// TODO: To Hunter-Lab.
+// TODO: Nearest web safe color.
 // TODO: Complementary color.
 // TODO: Split complementary colors.
 // TODO: Analogous colors.

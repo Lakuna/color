@@ -1,5 +1,5 @@
 import type ColorLike from "../types/ColorLike.js";
-import fromRgba from "./fromRgba.js";
+import fromRgb from "./fromRgb.js";
 
 /**
  * Create a color-like object from the given hexadecimal value.
@@ -8,7 +8,7 @@ import fromRgba from "./fromRgba.js";
  * @public
  */
 export default function fromHex(hex: number): ColorLike {
-	return fromRgba(
+	return fromRgb(
 		((hex >> 16) & 0xff) / 0xff,
 		((hex >> 8) & 0xff) / 0xff,
 		((hex >> 0) & 0xff) / 0xff

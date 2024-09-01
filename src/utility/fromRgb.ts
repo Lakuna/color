@@ -9,6 +9,6 @@ import type ColorLike from "../types/ColorLike.js";
  * @returns A color-like object.
  * @public
  */
-export default function fromRgba(r: number, g: number, b: number, a = 1) {
+export default function fromRgb(r: number, g: number, b: number, a = 1) {
 	return new Float32Array([r, g, b, a]) as Float32Array & ColorLike;
 }
