@@ -28,8 +28,8 @@ import xkcdNames from "../dist/names/xkcdNames.js";
 describe("getName", () => {
 	const emerald = fromHex(0x50c878);
 
-	it('should return Bang name "brilliantbluishgreen"', () => {
-		expect(getName(emerald, bangNames)).to.equal("brilliantbluishgreen");
+	it('should return Bang name "moderatespringgreen"', () => {
+		expect(getName(emerald, bangNames)).to.equal("moderatespringgreen");
 	});
 
 	it('should return big name "seagreen3"', () => {
@@ -44,8 +44,8 @@ describe("getName", () => {
 		expect(getName(emerald, cneCore2007Names)).to.equal("jade");
 	});
 
-	it('should return Crayola name "fern"', () => {
-		expect(getName(emerald, crayolaNames)).to.equal("fern");
+	it('should return Crayola name "shamrock"', () => {
+		expect(getName(emerald, crayolaNames)).to.equal("shamrock");
 	});
 
 	it('should return CSS3 name "mediumseagreen"', () => {
@@ -56,8 +56,8 @@ describe("getName", () => {
 		expect(getName(emerald, hollaschNames)).to.equal("seagreenmedium");
 	});
 
-	it('should return HTML4 name "gray"', () => {
-		expect(getName(emerald, html4Names)).to.equal("gray");
+	it('should return HTML4 name "lime"', () => {
+		expect(getName(emerald, html4Names)).to.equal("lime");
 	});
 
 	it('should return medium name "mediumaquamarine"', () => {
@@ -84,16 +84,16 @@ describe("getName", () => {
 		expect(getName(emerald, oldRgbNames)).to.equal("mediumaquamarine");
 	});
 
-	it('should return pigments name "verdigris"', () => {
-		expect(getName(emerald, pigmentsNames)).to.equal("verdigris");
+	it('should return pigments name "copperresinate"', () => {
+		expect(getName(emerald, pigmentsNames)).to.equal("copperresinate");
 	});
 
 	it('should return Raveling name "seagreen3"', () => {
 		expect(getName(emerald, ravelingNames)).to.equal("seagreen3");
 	});
 
-	it('should return Resene 2010 name "oceangreen"', () => {
-		expect(getName(emerald, resene2010Names)).to.equal("oceangreen");
+	it('should return Resene 2010 name "silvertree"', () => {
+		expect(getName(emerald, resene2010Names)).to.equal("silvertree");
 	});
 
 	it('should return Resene name "oceangreen"', () => {

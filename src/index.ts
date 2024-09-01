@@ -40,6 +40,8 @@ export { default as fromHex } from "./utility/fromHex.js";
 export { default as fromHsl } from "./utility/fromHsl.js";
 export { default as fromRgb } from "./utility/fromRgb.js";
 export { default as luminance } from "./utility/luminance.js";
+export { default as ntcMetric } from "./utility/ntcMetric.js";
+export { default as squaredHslDistance } from "./utility/squaredHslDistance.js";
 export { default as squaredRgbDistance } from "./utility/squaredRgbDistance.js";
 export { default as toHsl } from "./utility/toHsl.js";
 // TODO: Lightest background color.

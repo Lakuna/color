@@ -1,6 +1,6 @@
 import type ColorLike from "../types/ColorLike.js";
+import ntcMetric from "../utility/ntcMetric.js";
 import ntcNames from "./ntcNames.js";
-import squaredDistance from "../utility/squaredRgbDistance.js";
 
 /**
  * Get the name of the nearest color in the given color name dictionary.
@@ -17,7 +17,7 @@ export default function getName(
 	let nearestSqDist = Infinity;
 
 	for (const [name, otherColor] of names.entries()) {
-		const sqDist = squaredDistance(color, otherColor);
+		const sqDist = ntcMetric(color, otherColor);
 
 		if (nearestSqDist < sqDist) {
 			continue;
