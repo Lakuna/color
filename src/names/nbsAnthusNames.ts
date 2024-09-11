@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * NBS/ISCC Dictionary of Color Names. Computerized by David Mundie. Contains many human errors.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#nbs-anthus | Color-Name Dictionaries}
  * @public
  */
-const nbsAnthusNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const nbsAnthusNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["verydeepyellowishgreen", fromHex(0x002800)],
 	["deepgreen", fromHex(0x004524)],
 	["deepbluishgreen", fromHex(0x00382b)],

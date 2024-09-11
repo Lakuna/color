@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * `old-rgb.txt` from the X11 window system distribution. Originally tuned for the Digital VT240-series terminals.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#old-rgb | Color-Name Dictionaries}
  * @public
  */
-const oldRgbNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const oldRgbNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["steelblue", fromHex(0x236b8e)],
 	["cyan", fromHex(0x00ffff)],
 	["mediumturquoise", fromHex(0x70dbdb)],

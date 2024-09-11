@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * Two4U's Small Color Database. A subset of Two4U's Medium Color Database.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#small | Color-Name Dictionaries}
  * @public
  */
-const smallNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const smallNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["steelblue", fromHex(0x236b8e)],
 	["cyan", fromHex(0x00ffff)],
 	["quartz", fromHex(0xd9d9f3)],

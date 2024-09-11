@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
- * XKCD Color Name Survey. Better than the Color Naming Experiment and X11 for surface colors, but many of its colors will not print faithfully.
+ * XKCD Color Name Survey. Better than the Color Naming Experiment and X11 for surface colors, but many of its colors will not print faithfully. Some color names contain profanity.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#xkcd | Color-Name Dictionaries}
  * @public
  */
-const xkcdNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const xkcdNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["dark", fromHex(0x1b2431)],
 	["darkbluegrey", fromHex(0x1f3b4d)],
 	["windowsblue", fromHex(0x3778bf)],

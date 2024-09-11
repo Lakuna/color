@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * `thomas.txt` from the X11 window system distribution. A huge improvement over `old-rgb.txt`. A version of the older database that was tuned by John Thomas at Tektronix to match a box of Crayola crayons.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#thomas | Color-Name Dictionaries}
  * @public
  */
-const thomasNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const thomasNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["midnightblue", fromHex(0x0c3e63)],
 	["darkslategray", fromHex(0x3c404a)],
 	["darkslategrey", fromHex(0x3c404a)],

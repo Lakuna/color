@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * `rgb.txt` from the X11 window system distribution. Most colors are too bright. Suitable for light sources, but poorly suited for surface colors.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#x11 | Color-Name Dictionaries}
  * @public
  */
-const x11Names: Map<string, ColorLike> = new Map<string, ColorLike>([
+const x11Names: Map<string, Rgb> = new Map<string, Rgb>([
 	["dodgerblue4", fromHex(0x104e8b)],
 	["skyblue4", fromHex(0x4a708b)],
 	["steelblue4", fromHex(0x36648b)],

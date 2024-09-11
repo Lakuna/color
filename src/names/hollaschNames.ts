@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * Hollasch `colors.txt`. Compiled by Steve Hollasch. Looks fine for light sources, and appears better than `rgb.txt` for surface colors.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#hollasch | Color-Name Dictionaries}
  * @public
  */
-const hollaschNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const hollaschNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["cyan", fromHex(0x00ffff)],
 	["lavender", fromHex(0xe6e6fa)],
 	["bluelight", fromHex(0xadd8e6)],

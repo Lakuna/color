@@ -1,17 +1,19 @@
-import type ColorLike from "../types/ColorLike.js";
-import luminance from "./luminance.js";
+import type Rgb from "../types/Rgb.js";
+import relativeLuminance from "./relativeLuminance.js";
 
 /**
- * Calculate the contrast ratio between two colors.
- * @param a - The first color.
- * @param b - The second color.
- * @returns The contrast ratio between the colors.
+ * Calculate the contrast ratio between two sRGB colors. This is useful for ensuring that Web Content Accessibility Guidelines (WCAG) are met. For everything to meet WCAG 2.2 at level AAA, this value should be at least 7.
+ * @param color0 - The first sRGB color.
+ * @param color1 - The second sRGB color.
+ * @returns The contrast ratio between the colors (a value `v` such that the contrast ratio between the colors is `v` to one).
  * @see {@link https://www.w3.org/WAI/GL/wiki/Contrast_ratio | Contrast ratio}
+ * @see {@link https://www.w3.org/WAI/standards-guidelines/wcag/ | WCAG 2 Overview}
  * @public
  */
-export default function contrast(a: ColorLike, b: ColorLike): number {
-	const la = luminance(a);
-	const lb = luminance(b);
+export default function contrast(color0: Rgb, color1: Rgb): number {
+	// Intermediate values.
+	const a = relativeLuminance(color0);
+	const c = relativeLuminance(color1);
 
-	return la > lb ? (la + 0.05) / (lb + 0.05) : (lb + 0.05) / (la + 0.05);
+	return a > c ? (a + 0.05) / (c + 0.05) : (c + 0.05) / (a + 0.05);
 }

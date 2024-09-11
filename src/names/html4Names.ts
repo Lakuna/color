@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * The HTML-3.2 and HTML-4 Color Names. Use of this color dictionary is not recommended.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#html-4 | Color-Name Dictionaries}
  * @public
  */
-const html4Names: Map<string, ColorLike> = new Map<string, ColorLike>([
+const html4Names: Map<string, Rgb> = new Map<string, Rgb>([
 	["teal", fromHex(0x008080)],
 	["aqua", fromHex(0x00ffff)],
 	["gray", fromHex(0x808080)],

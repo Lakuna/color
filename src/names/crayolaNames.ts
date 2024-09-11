@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * Crayola Crayon Colors. Colors are not uniformly distributed. Insufficient variety of distinct colors for computer use.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#crayola | Color-Name Dictionaries}
  * @public
  */
-const crayolaNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const crayolaNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["black", fromHex(0x232323)],
 	["outerspace", fromHex(0x414a4c)],
 	["midnightblue", fromHex(0x1a4876)],

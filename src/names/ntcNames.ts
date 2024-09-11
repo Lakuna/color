@@ -1,14 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
-
-// TODO: NTC metric implementation (see `@see` tag below).
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * Name That Color. Most colors come from the 2001 Resene dictionary. Since it assigns primary colors to RGB extrema, it is better to use a pigment-based dictionary for specifying surface colors.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#ntc | Color-Name Dictionaries}
  * @public
  */
-const ntcNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const ntcNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["midnight", fromHex(0x011635)],
 	["bluecharcoal", fromHex(0x010d1a)],
 	["blackpearl", fromHex(0x041322)],

@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * Two4U's Big Color Database. A replica of `rgb.txt` with the addition of "light" ("light goldenrod"), "medium" ("medium aquamarine"), and "pale" ("pale violet red").
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#big | Color-Name Dictionaries}
  * @public
  */
-const bigNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const bigNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["dodgerblue4", fromHex(0x104e8b)],
 	["skyblue4", fromHex(0x4a708b)],
 	["steelblue4", fromHex(0x36648b)],

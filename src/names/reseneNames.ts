@@ -1,12 +1,12 @@
-import type ColorLike from "../types/ColorLike.js";
-import fromHex from "../utility/fromHex.js";
+import type Rgb from "../types/Rgb.js";
+import fromHex from "../utility/hexToRgb.js";
 
 /**
  * Resene Paint Colors. Fills a large volume of the CIELAB space uniformly. Primaries are absent, as they should be for physically realizable paints. Most names are specific to Resene. Excellent for surface colors.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#resene | Color-Name Dictionaries}
  * @public
  */
-const reseneNames: Map<string, ColorLike> = new Map<string, ColorLike>([
+const reseneNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["englishholly", fromHex(0x022d15)],
 	["cardingreen", fromHex(0x01361c)],
 	["bottlegreen", fromHex(0x093624)],
