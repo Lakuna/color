@@ -1,41 +1,6 @@
 import type Lab from "../types/Lab.js";
 import type Lch from "../types/Lch.js";
 
-// TODO
-
-/**
- * Convert CIELAB data to hue data.
- * @param varA - An input CIELAB value.
- * @param varB - An input CIELAB value.
- * @returns A CIELCh hue (h°) value.
- * @internal
- */
-const cieLabToHue = (varA: number, varB: number): number => {
-	let varBias = 0;
-	if (varA >= 0 && varB === 0) {
-		return 0;
-	}
-	if (varA < 0 && varB === 0) {
-		return 180;
-	}
-	if (varA === 0 && varB > 0) {
-		return 90;
-	}
-	if (varA === 0 && varB < 0) {
-		return 270;
-	}
-	if (varA > 0 && varB > 0) {
-		varBias = 0;
-	}
-	if (varA < 0) {
-		varBias = 180;
-	}
-	if (varA > 0 && varB < 0) {
-		varBias = 360;
-	}
-	return (Math.atan(varB / varA) * 180) / Math.PI + varBias;
-};
-
 /**
  * Calculates the ΔCMC between two CIELAB values. Based on the EasyRGB pseudocode.
  * @param color0 - The first color.
@@ -51,53 +16,44 @@ export default function deltaCmc(
 	weight: Lch = [1, 1, 1]
 ): number {
 	// eslint-disable-next-line prefer-destructuring
-	const cieL1 = color0[0];
+	const l0 = color0[0];
 	// eslint-disable-next-line prefer-destructuring
-	const cieA1 = color0[1];
+	const a0 = color0[1];
 	// eslint-disable-next-line prefer-destructuring
-	const cieB1 = color0[2];
+	const b0 = color0[2];
 	// eslint-disable-next-line prefer-destructuring
-	const cieL2 = color1[0];
+	const a1 = color1[1];
 	// eslint-disable-next-line prefer-destructuring
-	const cieA2 = color1[1];
-	// eslint-disable-next-line prefer-destructuring
-	const cieB2 = color1[2];
-	// eslint-disable-next-line prefer-destructuring
-	const whtL = weight[0];
-	// eslint-disable-next-line prefer-destructuring
-	const whtC = weight[1];
+	const b1 = color1[2];
 
-	const xC1 = Math.sqrt(cieA1 ** 2 + cieB1 ** 2);
-	const xC2 = Math.sqrt(cieA2 ** 2 + cieB2 ** 2);
-	const xff = Math.sqrt(xC1 ** 4 / (xC1 ** 4 + 1900));
-	const xH1 = cieLabToHue(cieA1, cieB1);
+	const xC1 = Math.hypot(a0, b0);
+	const i0 = xC1 ** 4;
+	const xff = Math.sqrt(i0 / (i0 + 1900));
+	const xH1 =
+		b0 === 0
+			? a0 < 0
+				? 180
+				: 0
+			: a0 === 0
+				? b0 < 0
+					? 270
+					: 90
+				: Math.atan(b0 / a0) * 57.29577951 + // `180 / Math.PI`
+					(a0 > 0 ? (b0 > 0 ? 0 : 360) : 180);
+	const i1 = (0.0638 * xC1) / (1 + 0.0131 * xC1) + 0.638;
+	const i2 = Math.hypot(a1, b1) - xC1;
 
-	// eslint-disable-next-line no-useless-assignment
-	let xTT = 0;
-	if (xH1 < 164 || xH1 > 345) {
-		xTT = 0.36 + Math.abs(0.4 * Math.cos(((35 + xH1) * Math.PI) / 180));
-	} else {
-		xTT = 0.56 + Math.abs(0.2 * Math.cos(((168 + xH1) * Math.PI) / 180));
-	}
-
-	// eslint-disable-next-line no-useless-assignment
-	let xSL = 0;
-	if (cieL1 < 16) {
-		xSL = 0.511;
-	} else {
-		xSL = (0.040975 * cieL1) / (1 + 0.01765 * cieL1);
-	}
-
-	let xSC = (0.0638 * xC1) / (1 + 0.0131 * xC1) + 0.638;
-	let xSH = (xff * xTT + 1 - xff) * xSC;
-	const xDH = Math.sqrt(
-		(cieA2 - cieA1) ** 2 + (cieB2 - cieB1) ** 2 - (xC2 - xC1) ** 2
+	return Math.hypot(
+		(color1[0] - l0) /
+			(weight[0] * (l0 < 16 ? 0.511 : (0.040975 * l0) / (1 + 0.01765 * l0))),
+		i2 / (weight[1] * i1),
+		Math.sqrt((a1 - a0) ** 2 + (b1 - b0) ** 2 - i2 ** 2) /
+			((xff *
+				(xH1 < 164 || xH1 > 345
+					? 0.36 + Math.abs(0.4 * Math.cos((35 + xH1) * 0.01745329)) // `Math.PI / 180`
+					: 0.56 + Math.abs(0.2 * Math.cos((168 + xH1) * 0.01745329))) + // `Math.PI / 180`
+				1 -
+				xff) *
+				i1)
 	);
-	xSL = (cieL2 - cieL1) / (whtL * xSL);
-	xSC = (xC2 - xC1) / (whtC * xSC);
-	xSH = xDH / xSH;
-
-	const deltaCmc2 = Math.sqrt(xSL ** 2 + xSC ** 2 + xSH ** 2);
-
-	return deltaCmc2;
 }

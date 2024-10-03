@@ -3,50 +3,33 @@ import StandardIlluminant from "./StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
 import getReference from "./getReference.js";
 
-// TODO
-
 /**
  * Convert the given CIELUV color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The CIELUV color.
- * @param reference - A standard illuminant that represents the white point.
+ * @param ref - A standard illuminant that represents the white point.
  * @returns A CIEXYZ color.
  * @public
  */
 export default function luvToXyz(
 	color: Luv,
-	reference: Xyz = getReference(StandardIlluminant.D65_2)
+	ref: Xyz = getReference(StandardIlluminant.D65_2)
 ): Xyz {
 	// eslint-disable-next-line prefer-destructuring
-	const cieL = color[0];
+	const l = color[0];
 	// eslint-disable-next-line prefer-destructuring
-	const cieU = color[1];
+	const rx = ref[0];
 	// eslint-disable-next-line prefer-destructuring
-	const cieV = color[2];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceX = reference[0];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceY = reference[1];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceZ = reference[2];
+	const ry = ref[1];
 
-	let varY = (cieL + 16) / 116;
-	if (varY ** 3 > 0.008856) {
-		varY **= 3;
-	} else {
-		varY = (varY - 16 / 116) / 7.787;
-	}
+	const i0 = (l + 16) / 116;
+	const i1 = i0 ** 3;
+	const i2 = 13 * l;
+	const i3 = rx + 15 * ry + 3 * ref[2];
+	const i4 = color[1] / i2 + (4 * rx) / i3;
+	const i5 = color[2] / i2 + (9 * ry) / i3;
+	const y = (i1 > 0.008856 ? i1 : (i0 - 0.13793103) / 7.787) * 100; // `16 / 166`
+	const i6 = 9 * y;
+	const x = -(i6 * i4) / ((i4 - 4) * i5 - i4 * i5);
 
-	const refU =
-		(4 * referenceX) / (referenceX + 15 * referenceY + 3 * referenceZ);
-	const refV =
-		(9 * referenceY) / (referenceX + 15 * referenceY + 3 * referenceZ);
-
-	const varU = cieU / (13 * cieL) + refU;
-	const varV = cieV / (13 * cieL) + refV;
-
-	const y = varY * 100;
-	const x = -(9 * y * varU) / ((varU - 4) * varV - varU * varV);
-	const z = (9 * y - 15 * varV * y - varV * x) / (3 * varV);
-
-	return [x, y, z];
+	return [x, y, (i6 - 15 * i5 * y - i5 * x) / (3 * i5)];
 }
