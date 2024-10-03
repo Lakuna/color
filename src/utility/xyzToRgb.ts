@@ -1,8 +1,6 @@
 import type Rgb from "../types/Rgb.js";
 import type Xyz from "../types/Xyz.js";
 
-// TODO
-
 /**
  * Convert the given CIEXYZ D65/2° standard illuminant color to an sRGB color. Based on the EasyRGB pseudo-code.
  * @param color - The CIEXYZ color.
@@ -10,40 +8,16 @@ import type Xyz from "../types/Xyz.js";
  * @public
  */
 export default function xyzToRgb(color: Xyz): Rgb {
-	// eslint-disable-next-line prefer-destructuring
-	const x = color[0];
-	// eslint-disable-next-line prefer-destructuring
-	const y = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	const z = color[2];
+	const i0 = color[0] / 100;
+	const i1 = color[1] / 100;
+	const i2 = color[2] / 100;
+	const i3 = i0 * 3.2406 + i1 * -1.5372 + i2 * -0.4986;
+	const i4 = i0 * -0.9689 + i1 * 1.8758 + i2 * 0.0415;
+	const i5 = i0 * 0.0557 + i1 * -0.204 + i2 * 1.057;
 
-	const varX = x / 100;
-	const varY = y / 100;
-	const varZ = z / 100;
-
-	let varR = varX * 3.2406 + varY * -1.5372 + varZ * -0.4986;
-	let varG = varX * -0.9689 + varY * 1.8758 + varZ * 0.0415;
-	let varB = varX * 0.0557 + varY * -0.204 + varZ * 1.057;
-
-	if (varR > 0.0031308) {
-		varR = 1.055 * varR ** (1 / 2.4) - 0.055;
-	} else {
-		varR *= 12.92;
-	}
-	if (varG > 0.0031308) {
-		varG = 1.055 * varG ** (1 / 2.4) - 0.055;
-	} else {
-		varG *= 12.92;
-	}
-	if (varB > 0.0031308) {
-		varB = 1.055 * varB ** (1 / 2.4) - 0.055;
-	} else {
-		varB *= 12.92;
-	}
-
-	const sR = varR * 255;
-	const sG = varG * 255;
-	const sB = varB * 255;
-
-	return [sR, sG, sB];
+	return [
+		(i3 > 0.0031308 ? 1.055 * i3 ** 0.41666666 - 0.055 : i3 * 12.92) * 0xff, // `1 / 2.4`
+		(i4 > 0.0031308 ? 1.055 * i4 ** 0.41666666 - 0.055 : i4 * 12.92) * 0xff, // `1 / 2.4`
+		(i5 > 0.0031308 ? 1.055 * i5 ** 0.41666666 - 0.055 : i5 * 12.92) * 0xff // `1 / 2.4`
+	];
 }

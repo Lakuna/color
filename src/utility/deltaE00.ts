@@ -47,60 +47,59 @@ export default function deltaE00(
 	const b1 = color1[2];
 
 	const i0 = ((Math.hypot(a0, b0) + Math.hypot(a1, b1)) / 2) ** 7;
-	const xGX = 0.5 * (1 - Math.sqrt(i0 / (i0 + 6103515625))); // `25 ** 7
-	const i1 = (1 + xGX) * a0;
-	const xC1 = Math.hypot(i1, b0);
-	const xH1 = cieLabToHue(i1, b0);
-	const i2 = (1 + xGX) * a1;
-	const xC2 = Math.hypot(i2, b1);
-	const xH2 = cieLabToHue(i2, b1);
-	const xLX = (l0 + l1) / 2;
-	const xCY = (xC1 + xC2) / 2;
-	const i3 = xC1 * xC2;
-	const i4 = xH1 + xH2;
-	const xHX =
-		i3 === 0
-			? i4
-			: Math.abs(xH1 - xH2) > 180
-				? i4 < 360
-					? (i4 + 360) / 2
-					: (i4 - 360) / 2
-				: i4 / 2;
-	const xDC = (xC2 - xC1) / (weight[1] * (1 + 0.045 * xCY));
-	const i5 = xH2 - xH1;
-	const xDH =
+	const i1 = 0.5 * (1 - Math.sqrt(i0 / (i0 + 6103515625))); // `25 ** 7
+	const i2 = (1 + i1) * a0;
+	const i3 = Math.hypot(i2, b0);
+	const i4 = cieLabToHue(i2, b0);
+	const i5 = (1 + i1) * a1;
+	const i6 = Math.hypot(i5, b1);
+	const i7 = cieLabToHue(i5, b1);
+	const i8 = (i3 + i6) / 2;
+	const i9 = i3 * i6;
+	const i10 = i4 + i7;
+	const i11 =
+		i9 === 0
+			? i10
+			: Math.abs(i4 - i7) > 180
+				? i10 < 360
+					? (i10 + 360) / 2
+					: (i10 - 360) / 2
+				: i10 / 2;
+	const i12 = (i6 - i3) / (weight[1] * (1 + 0.045 * i8));
+	const i13 = i7 - i4;
+	const i14 =
 		(2 *
-			Math.sqrt(i3) *
+			Math.sqrt(i9) *
 			Math.sin(
-				((i3 === 0
+				((i9 === 0
 					? 0
-					: Math.abs(i5) <= 180
-						? i5
-						: i5 > 180
-							? i5 - 360
-							: i5 + 360) /
+					: Math.abs(i13) <= 180
+						? i13
+						: i13 > 180
+							? i13 - 360
+							: i13 + 360) /
 					2) *
 					0.01745329 // `Math.PI / 180`
 			)) /
 		(weight[2] *
 			(1 +
 				0.015 *
-					xCY *
+					i8 *
 					(1 -
-						0.17 * Math.cos((xHX - 30) * 0.01745329) + // `Math.PI / 180`
-						0.24 * Math.cos(2 * xHX * 0.01745329) + // `Math.PI / 180`
-						0.32 * Math.cos((3 * xHX + 6) * 0.01745329) - // `Math.PI / 180`
-						0.2 * Math.cos((4 * xHX - 63) * 0.01745329)))); // `Math.PI / 180`
-	const i6 = xCY ** 7;
-	const i7 = (xLX - 50) ** 2;
+						0.17 * Math.cos((i11 - 30) * 0.01745329) + // `Math.PI / 180`
+						0.24 * Math.cos(2 * i11 * 0.01745329) + // `Math.PI / 180`
+						0.32 * Math.cos((3 * i11 + 6) * 0.01745329) - // `Math.PI / 180`
+						0.2 * Math.cos((4 * i11 - 63) * 0.01745329)))); // `Math.PI / 180`
+	const i15 = i8 ** 7;
+	const i16 = ((l0 + l1) / 2 - 50) ** 2;
 
 	return Math.sqrt(
-		((l1 - l0) / (weight[0] * (1 + (0.015 * i7) / Math.sqrt(20 + i7)))) ** 2 +
-			xDC ** 2 +
-			xDH ** 2 +
-			-Math.sin(2 * (30 * Math.exp(-(((xHX - 275) / 25) ** 2))) * 0.01745329) * // `Math.PI / 180`
-				(2 * Math.sqrt(i6 / (i6 + 6103515625))) * // `25 ** 7
-				xDC *
-				xDH
+		((l1 - l0) / (weight[0] * (1 + (0.015 * i16) / Math.sqrt(20 + i16)))) ** 2 +
+			i12 ** 2 +
+			i14 ** 2 +
+			-Math.sin(2 * (30 * Math.exp(-(((i11 - 275) / 25) ** 2))) * 0.01745329) * // `Math.PI / 180`
+				(2 * Math.sqrt(i15 / (i15 + 6103515625))) * // `25 ** 7
+				i12 *
+				i14
 	);
 }

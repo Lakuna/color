@@ -13,8 +13,13 @@ export default function rgbToHsl(color: Rgb): Hsl {
 	const i2 = color[2] / 0xff;
 	const i3 = Math.min(i0, i1, i2);
 	const i4 = Math.max(i0, i1, i2);
-	const i5 = i4 - i3;
 	const l = (i4 + i3) / 2;
+	const i5 = i4 - i3;
+
+	if (i5 === 0) {
+		return [0, 0, l];
+	}
+
 	const s = l < 0.5 ? i5 / (i4 + i3) : i5 / (2 - i4 - i3);
 	const i6 = ((i4 - i0) / 6 + i5 / 2) / i5;
 	const i7 = ((i4 - i1) / 6 + i5 / 2) / i5;
@@ -29,5 +34,5 @@ export default function rgbToHsl(color: Rgb): Hsl {
 					: 0;
 	const h = i9 < 0 ? i9 + 1 : i9 > 1 ? i9 - 1 : i9;
 
-	return i5 === 0 ? [0, 0, l] : [h, s, l];
+	return [h, s, l];
 }

@@ -8,9 +8,9 @@ import type Xyz from "../types/Xyz.js";
  * @public
  */
 export default function adobeToXyz(color: Adobe): Xyz {
-	const i0 = (color[0] / 0xff) ** 2.19921875 * 100;
-	const i1 = (color[1] / 0xff) ** 2.19921875 * 100;
-	const i2 = (color[2] / 0xff) ** 2.19921875 * 100;
+	const i0 = color[0] ** 2.19921875 * 0.00050991; // `(x / 0xff) ** 2.19921875 * 100`
+	const i1 = color[1] ** 2.19921875 * 0.00050991; // `(x / 0xff) ** 2.19921875 * 100`
+	const i2 = color[2] ** 2.19921875 * 0.00050991; // `(x / 0xff) ** 2.19921875 * 100`
 
 	return [
 		i0 * 0.57667 + i1 * 0.18555 + i2 * 0.18819,

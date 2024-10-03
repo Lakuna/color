@@ -28,14 +28,14 @@ export default function deltaE94(
 	// eslint-disable-next-line prefer-destructuring
 	const b1 = color1[2];
 
-	const xC1 = Math.hypot(a0, b0);
-	const i0 = l1 - l0;
-	const i1 = Math.hypot(a1, b1) - xC1;
-	const i2 = Math.hypot(l0 - l1, a0 - a1, b0 - b1) ** 2 - i0 ** 2 - i1 ** 2;
+	const i0 = Math.hypot(a0, b0);
+	const i1 = l1 - l0;
+	const i2 = Math.hypot(a1, b1) - i0;
+	const i3 = Math.hypot(l0 - l1, a0 - a1, b0 - b1) ** 2 - i1 ** 2 - i2 ** 2;
 
 	return Math.hypot(
-		i0 / weight[0],
-		i1 / (weight[1] * (1 + 0.045 * xC1)),
-		(i2 > 0 ? Math.sqrt(i2) : 0) / (weight[2] * (1 + 0.015 * xC1))
+		i1 / weight[0],
+		i2 / (weight[1] * (1 + 0.045 * i0)),
+		(i3 > 0 ? Math.sqrt(i3) : 0) / (weight[2] * (1 + 0.015 * i0))
 	);
 }

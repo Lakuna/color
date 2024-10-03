@@ -37,14 +37,17 @@ export default function hslToRgb(color: Hsl): Rgb {
 	const l = color[2];
 
 	const i0 = l * 0xff;
+
+	if (s === 0) {
+		return [i0, i0, i0];
+	}
+
 	const i1 = l < 0.5 ? l * (1 + s) : l + s - s * l;
 	const i2 = 2 * l - i1;
 
-	return s === 0
-		? [i0, i0, i0]
-		: [
-				0xff * hueToRgb(i2, i1, h + 1 / 3),
-				0xff * hueToRgb(i2, i1, h),
-				0xff * hueToRgb(i2, i1, h - 1 / 3)
-			];
+	return [
+		0xff * hueToRgb(i2, i1, h + 1 / 3),
+		0xff * hueToRgb(i2, i1, h),
+		0xff * hueToRgb(i2, i1, h - 1 / 3)
+	];
 }

@@ -26,10 +26,10 @@ export default function deltaCmc(
 	// eslint-disable-next-line prefer-destructuring
 	const b1 = color1[2];
 
-	const xC1 = Math.hypot(a0, b0);
-	const i0 = xC1 ** 4;
-	const xff = Math.sqrt(i0 / (i0 + 1900));
-	const xH1 =
+	const i0 = Math.hypot(a0, b0);
+	const i1 = i0 ** 4;
+	const i2 = Math.sqrt(i1 / (i1 + 1900));
+	const i3 =
 		b0 === 0
 			? a0 < 0
 				? 180
@@ -40,20 +40,20 @@ export default function deltaCmc(
 					: 90
 				: Math.atan(b0 / a0) * 57.29577951 + // `180 / Math.PI`
 					(a0 > 0 ? (b0 > 0 ? 0 : 360) : 180);
-	const i1 = (0.0638 * xC1) / (1 + 0.0131 * xC1) + 0.638;
-	const i2 = Math.hypot(a1, b1) - xC1;
+	const i4 = (0.0638 * i0) / (1 + 0.0131 * i0) + 0.638;
+	const i5 = Math.hypot(a1, b1) - i0;
 
 	return Math.hypot(
 		(color1[0] - l0) /
 			(weight[0] * (l0 < 16 ? 0.511 : (0.040975 * l0) / (1 + 0.01765 * l0))),
-		i2 / (weight[1] * i1),
-		Math.sqrt((a1 - a0) ** 2 + (b1 - b0) ** 2 - i2 ** 2) /
-			((xff *
-				(xH1 < 164 || xH1 > 345
-					? 0.36 + Math.abs(0.4 * Math.cos((35 + xH1) * 0.01745329)) // `Math.PI / 180`
-					: 0.56 + Math.abs(0.2 * Math.cos((168 + xH1) * 0.01745329))) + // `Math.PI / 180`
+		i5 / (weight[1] * i4),
+		Math.sqrt((a1 - a0) ** 2 + (b1 - b0) ** 2 - i5 ** 2) /
+			((i2 *
+				(i3 < 164 || i3 > 345
+					? 0.36 + Math.abs(0.4 * Math.cos((35 + i3) * 0.01745329)) // `Math.PI / 180`
+					: 0.56 + Math.abs(0.2 * Math.cos((168 + i3) * 0.01745329))) + // `Math.PI / 180`
 				1 -
-				xff) *
-				i1)
+				i2) *
+				i4)
 	);
 }

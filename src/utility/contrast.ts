@@ -12,8 +12,8 @@ import relativeLuminance from "./relativeLuminance.js";
  */
 export default function contrast(color0: Rgb, color1: Rgb): number {
 	// Intermediate values.
-	const a = relativeLuminance(color0);
-	const c = relativeLuminance(color1);
+	const i0 = relativeLuminance(color0);
+	const i1 = relativeLuminance(color1);
 
-	return a > c ? (a + 0.05) / (c + 0.05) : (c + 0.05) / (a + 0.05);
+	return i0 > i1 ? (i0 + 0.05) / (i1 + 0.05) : (i1 + 0.05) / (i0 + 0.05);
 }

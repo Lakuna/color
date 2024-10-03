@@ -3,55 +3,25 @@ import StandardIlluminant from "./StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
 import getReference from "./getReference.js";
 
-// TODO
-
 /**
  * Convert the given CIEXYZ color to a CIELAB color. Based on the EasyRGB pseudo-code.
  * @param color - The CIEXYZ color.
- * @param reference - A standard illuminant that represents the white point.
+ * @param ref - A standard illuminant that represents the white point.
  * @returns A CIELAB color.
  * @public
  */
 export default function xyzToLab(
 	color: Xyz,
-	reference: Xyz = getReference(StandardIlluminant.D65_2)
+	ref: Xyz = getReference(StandardIlluminant.D65_2)
 ): Lab {
-	// eslint-disable-next-line prefer-destructuring
-	const x = color[0];
-	// eslint-disable-next-line prefer-destructuring
-	const y = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	const z = color[2];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceX = reference[0];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceY = reference[1];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceZ = reference[2];
+	const i0 = color[0] / ref[0];
+	const i1 = color[1] / ref[1];
+	const i2 = color[2] / ref[2];
+	const i3 = i1 > 0.008856 ? i1 ** 0.33333333 : 7.787 * i1 + 0.13793103; // `1 / 3`; `16 / 116`
 
-	let varX = x / referenceX;
-	let varY = y / referenceY;
-	let varZ = z / referenceZ;
-
-	if (varX > 0.008856) {
-		varX **= 1 / 3;
-	} else {
-		varX = 7.787 * varX + 16 / 116;
-	}
-	if (varY > 0.008856) {
-		varY **= 1 / 3;
-	} else {
-		varY = 7.787 * varY + 16 / 116;
-	}
-	if (varZ > 0.008856) {
-		varZ **= 1 / 3;
-	} else {
-		varZ = 7.787 * varZ + 16 / 116;
-	}
-
-	const cieL = 116 * varY - 16;
-	const cieA = 500 * (varX - varY);
-	const cieB = 200 * (varY - varZ);
-
-	return [cieL, cieA, cieB];
+	return [
+		116 * i3 - 16,
+		500 * ((i0 > 0.008856 ? i0 ** 0.33333333 : 7.787 * i0 + 0.13793103) - i3), // `1 / 3`; `16 / 116`
+		200 * (i3 - (i2 > 0.008856 ? i2 ** 0.33333333 : 7.787 * i2 + 0.13793103)) // `1 / 3`; `16 / 116`
+	];
 }
