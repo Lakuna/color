@@ -9,17 +9,11 @@ import type Cmyk from "../types/Cmyk.js";
  */
 export default function cmykToCmy(color: Cmyk): Cmy {
 	// eslint-disable-next-line prefer-destructuring
-	let c = color[0];
-	// eslint-disable-next-line prefer-destructuring
-	let m = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	let y = color[2];
-	// eslint-disable-next-line prefer-destructuring
 	const k = color[3];
 
-	c = c * (1 - k) + k;
-	m = m * (1 - k) + k;
-	y = y * (1 - k) + k;
-
-	return [c, m, y];
+	return [
+		color[0] * (1 - k) + k,
+		color[1] * (1 - k) + k,
+		color[2] * (1 - k) + k
+	];
 }

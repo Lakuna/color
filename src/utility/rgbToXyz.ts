@@ -1,6 +1,8 @@
 import type Rgb from "../types/Rgb.js";
 import type Xyz from "../types/Xyz.js";
 
+// TODO
+
 /**
  * Convert the given sRGB color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The sRGB color.

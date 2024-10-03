@@ -1,6 +1,8 @@
 import type Hsl from "../types/Hsl.js";
 import type Rgb from "../types/Rgb.js";
 
+// TODO
+
 /**
  * Convert the given sRGB color to an HSL color. Based on the EasyRGB pseudo-code.
  * @param color - The sRGB color.

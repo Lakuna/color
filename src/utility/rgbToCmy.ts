@@ -1,6 +1,8 @@
 import type Cmy from "../types/Cmy.js";
 import type Rgb from "../types/Rgb.js";
 
+// TODO
+
 /**
  * Convert the given sRGB color to a CMY color. Based on the EasyRGB pseudo-code.
  * @param color - The sRGB color.

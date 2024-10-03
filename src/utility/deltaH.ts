@@ -23,20 +23,17 @@ export default function deltaH(color0: Luv, color1: Luv): number;
 
 export default function deltaH(color0: Lab | Luv, color1: Lab | Luv): number {
 	// eslint-disable-next-line prefer-destructuring
-	const cieA1 = color0[1];
+	const a0 = color0[1];
 	// eslint-disable-next-line prefer-destructuring
-	const cieB1 = color0[2];
+	const b0 = color0[2];
 	// eslint-disable-next-line prefer-destructuring
-	const cieA2 = color1[1];
+	const a1 = color1[1];
 	// eslint-disable-next-line prefer-destructuring
-	const cieB2 = color1[2];
+	const b1 = color1[2];
 
-	const xDE =
-		Math.sqrt(cieA2 ** 2 + cieB2 ** 2) - Math.sqrt(cieA1 ** 2 + cieB1 ** 2);
-
-	const deltaH2 = Math.sqrt(
-		(cieA2 - cieA1) ** 2 + (cieB2 - cieB1) ** 2 - xDE ** 2
+	return Math.sqrt(
+		(a1 - a0) ** 2 +
+			(b1 - b0) ** 2 -
+			(Math.hypot(a1, b1) - Math.hypot(a0, b0)) ** 2
 	);
-
-	return deltaH2;
 }

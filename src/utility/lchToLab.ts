@@ -10,14 +10,9 @@ import type Luv from "../types/Luv.js";
  */
 export default function lchToLab(color: Lch): Lab | Luv {
 	// eslint-disable-next-line prefer-destructuring
-	const cieL = color[0];
+	const c = color[1];
 	// eslint-disable-next-line prefer-destructuring
-	const cieC = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	const cieH = color[2];
+	const h = color[2];
 
-	const cieA = Math.cos((cieH * Math.PI) / 180) * cieC;
-	const cieB = Math.sin((cieH * Math.PI) / 180) * cieC;
-
-	return [cieL, cieA, cieB];
+	return [color[0], Math.cos(h * 0.01745329) * c, Math.sin(h * 0.01745329) * c]; // `Math.PI / 180`
 }

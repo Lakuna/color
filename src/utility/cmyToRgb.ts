@@ -8,16 +8,5 @@ import type Rgb from "../types/Rgb.js";
  * @public
  */
 export default function cmyToRgb(color: Cmy): Rgb {
-	// eslint-disable-next-line prefer-destructuring
-	const c = color[0];
-	// eslint-disable-next-line prefer-destructuring
-	const m = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	const y = color[2];
-
-	const r = (1 - c) * 255;
-	const g = (1 - m) * 255;
-	const b = (1 - y) * 255;
-
-	return [r, g, b];
+	return [(1 - color[0]) * 0xff, (1 - color[1]) * 0xff, (1 - color[2]) * 0xff];
 }

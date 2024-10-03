@@ -6,37 +6,28 @@ import getReference from "./getReference.js";
 /**
  * Convert the given Hunter Lab color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The Hunter Lab color.
- * @param reference - A standard illuminant that represents the white point.
+ * @param ref - A standard illuminant that represents the white point.
  * @returns A CIEXYZ color.
  * @public
  */
 export default function hunterToXyz(
 	color: Hunter,
-	reference: Xyz = getReference(StandardIlluminant.D65_2)
+	ref: Xyz = getReference(StandardIlluminant.D65_2)
 ): Xyz {
 	// eslint-disable-next-line prefer-destructuring
-	const hunterL = color[0];
+	const rx = ref[0];
 	// eslint-disable-next-line prefer-destructuring
-	const hunterA = color[1];
+	const ry = ref[1];
 	// eslint-disable-next-line prefer-destructuring
-	const hunterB = color[2];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceX = reference[0];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceY = reference[1];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceZ = reference[2];
+	const rz = ref[2];
 
-	const varKa = (175 / 198.04) * (referenceY + referenceX);
-	const varKb = (70 / 218.11) * (referenceY + referenceZ);
+	const y = (color[0] / ry) ** 2 * 100;
+	const i0 = y / ry;
+	const i1 = Math.sqrt(i0);
 
-	const y = (hunterL / referenceY) ** 2 * 100;
-	const x =
-		((hunterA / varKa) * Math.sqrt(y / referenceY) + y / referenceY) *
-		referenceX;
-	const z =
-		-((hunterB / varKb) * Math.sqrt(y / referenceY) - y / referenceY) *
-		referenceZ;
-
-	return [x, y, z];
+	return [
+		((color[1] / (0.88365987 * (ry + rx))) * i1 + i0) * rx, // `175 / 198.04`
+		y,
+		-((color[2] / (0.32093898 * (ry + rz))) * i1 - i0) * rz // `70 / 218.11`
+	];
 }

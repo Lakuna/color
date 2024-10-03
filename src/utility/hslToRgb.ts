@@ -3,31 +3,23 @@ import type Rgb from "../types/Rgb.js";
 
 /**
  * Converts the given hue data to RGB data.
- * @param v1 - The first piecewise value.
- * @param b - The second piecewise value.
- * @param c - The third piecewise value.
+ * @param v0 - The first piecewise value.
+ * @param v1 - The second piecewise value.
+ * @param h - The third piecewise value.
  * @returns The piecewise result.
  * @internal
  */
-const hueToRgb = (v1: number, v2: number, vH: number): number => {
-	if (vH < 0) {
-		// eslint-disable-next-line no-param-reassign
-		vH += 1;
-	}
-	if (vH > 1) {
-		// eslint-disable-next-line no-param-reassign
-		vH -= 1;
-	}
-	if (6 * vH < 1) {
-		return v1 + (v2 - v1) * 6 * vH;
-	}
-	if (2 * vH < 1) {
-		return v2;
-	}
-	if (3 * vH < 2) {
-		return v1 + (v2 - v1) * (2 / 3 - vH) * 6;
-	}
-	return v1;
+const hueToRgb = (v0: number, v1: number, h: number): number => {
+	const i0 = h < 0 ? h + 1 : h > 1 ? h - 1 : h;
+	const i1 = 6 * i0;
+	const i2 = v1 - v0;
+	return i1 < 1
+		? v0 + i2 * i1
+		: 2 * i0 < 1
+			? v1
+			: 3 * i0 < 2
+				? v0 + i2 * (2 / 3 - i0) * 6
+				: v0;
 };
 
 /**
@@ -44,31 +36,15 @@ export default function hslToRgb(color: Hsl): Rgb {
 	// eslint-disable-next-line prefer-destructuring
 	const l = color[2];
 
-	// eslint-disable-next-line no-useless-assignment
-	let r = 0;
-	// eslint-disable-next-line no-useless-assignment
-	let g = 0;
-	// eslint-disable-next-line no-useless-assignment
-	let b = 0;
-	if (s === 0) {
-		r = l * 255;
-		g = l * 255;
-		b = l * 255;
-	} else {
-		// eslint-disable-next-line no-useless-assignment
-		let var2 = 0;
-		if (l < 0.5) {
-			var2 = l * (1 + s);
-		} else {
-			var2 = l + s - s * l;
-		}
+	const i0 = l * 0xff;
+	const i1 = l < 0.5 ? l * (1 + s) : l + s - s * l;
+	const i2 = 2 * l - i1;
 
-		const var1 = 2 * l - var2;
-
-		r = 255 * hueToRgb(var1, var2, h + 1 / 3);
-		g = 255 * hueToRgb(var1, var2, h);
-		b = 255 * hueToRgb(var1, var2, h - 1 / 3);
-	}
-
-	return [r, g, b];
+	return s === 0
+		? [i0, i0, i0]
+		: [
+				0xff * hueToRgb(i2, i1, h + 1 / 3),
+				0xff * hueToRgb(i2, i1, h),
+				0xff * hueToRgb(i2, i1, h - 1 / 3)
+			];
 }

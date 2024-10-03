@@ -10,22 +10,15 @@ import type Luv from "../types/Luv.js";
  */
 export default function labToLch(color: Lab | Luv): Lch {
 	// eslint-disable-next-line prefer-destructuring
-	const cieL = color[0];
+	const a = color[1];
 	// eslint-disable-next-line prefer-destructuring
-	const cieA = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	const cieB = color[2];
+	const b = color[2];
 
-	let varH = Math.atan2(cieB, cieA);
+	const i0 = Math.atan2(b, a);
 
-	if (varH > 0) {
-		varH = (varH / Math.PI) * 180;
-	} else {
-		varH = 360 - (Math.abs(varH) / Math.PI) * 180;
-	}
-
-	const cieC = Math.sqrt(cieA ** 2 + cieB ** 2);
-	const cieH = varH;
-
-	return [cieL, cieC, cieH];
+	return [
+		color[0],
+		Math.hypot(a, b),
+		i0 > 0 ? i0 * 57.29577951 : 360 - Math.abs(i0) * 57.29577951 // `180 / Math.PI`
+	];
 }

@@ -1,9 +1,9 @@
 import {
 	deltaC,
 	deltaCmc,
-	deltaE1994,
-	deltaE2000,
-	deltaECie,
+	deltaE00,
+	deltaE76,
+	deltaE94,
 	deltaH,
 	hexToRgb,
 	rgbToXyz,
@@ -46,43 +46,43 @@ describe("deltaCmc", () => {
 
 describe("deltaE1994", () => {
 	it("should return `deltaE1994(a, b) = 69.03`", () => {
-		expect(deltaE1994(a, b)).to.be.approximately(69.03, 0.1);
+		expect(deltaE94(a, b)).to.be.approximately(69.03, 0.1);
 	});
 
 	it("should return `deltaE1994(a, c) = 55.80`", () => {
-		expect(deltaE1994(a, c)).to.be.approximately(55.8, 0.1);
+		expect(deltaE94(a, c)).to.be.approximately(55.8, 0.1);
 	});
 
 	it("should return `deltaE1994(b, c) = 47.98`", () => {
-		expect(deltaE1994(b, c)).to.be.approximately(47.98, 0.1);
+		expect(deltaE94(b, c)).to.be.approximately(47.98, 0.1);
 	});
 });
 
 describe("deltaE2000", () => {
 	it("should return `deltaE2000(a, b) = 75.06`", () => {
-		expect(deltaE2000(a, b)).to.be.approximately(75.06, 0.1);
+		expect(deltaE00(a, b)).to.be.approximately(75.06, 0.1);
 	});
 
 	it("should return `deltaE2000(a, c) = 50.48`", () => {
-		expect(deltaE2000(a, c)).to.be.approximately(50.48, 0.1);
+		expect(deltaE00(a, c)).to.be.approximately(50.48, 0.1);
 	});
 
 	it("should return `deltaE2000(b, c) = 45.46`", () => {
-		expect(deltaE2000(b, c)).to.be.approximately(45.46, 0.1);
+		expect(deltaE00(b, c)).to.be.approximately(45.46, 0.1);
 	});
 });
 
 describe("deltaECie", () => {
 	it("should return `deltaECie(a, b) = 122.67`", () => {
-		expect(deltaECie(a, b)).to.be.approximately(122.67, 0.1);
+		expect(deltaE76(a, b)).to.be.approximately(122.67, 0.1);
 	});
 
 	it("should return `deltaECie(a, c) = 100.40`", () => {
-		expect(deltaECie(a, c)).to.be.approximately(100.4, 0.1);
+		expect(deltaE76(a, c)).to.be.approximately(100.4, 0.1);
 	});
 
 	it("should return `deltaECie(b, c) = 109.91`", () => {
-		expect(deltaECie(b, c)).to.be.approximately(109.91, 0.1);
+		expect(deltaE76(b, c)).to.be.approximately(109.91, 0.1);
 	});
 });
 

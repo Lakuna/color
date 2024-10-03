@@ -9,27 +9,15 @@ import type Cmyk from "../types/Cmyk.js";
  */
 export default function cmyToCmyk(color: Cmy): Cmyk {
 	// eslint-disable-next-line prefer-destructuring
-	let c = color[0];
+	const c = color[0];
 	// eslint-disable-next-line prefer-destructuring
-	let m = color[1];
+	const m = color[1];
 	// eslint-disable-next-line prefer-destructuring
-	let y = color[2];
+	const y = color[2];
 
-	let varK = 1;
+	const k = Math.min(c, m, y, 1);
 
-	if (c < varK) varK = c;
-	if (m < varK) varK = m;
-	if (y < varK) varK = y;
-	if (varK === 1) {
-		c = 0;
-		m = 0;
-		y = 0;
-	} else {
-		c = (c - varK) / (1 - varK);
-		m = (m - varK) / (1 - varK);
-		y = (y - varK) / (1 - varK);
-	}
-	const k = varK;
-
-	return [c, m, y, k];
+	return k === 1
+		? [0, 0, 0, 1]
+		: [(c - k) / (1 - k), (m - k) / (1 - k), (y - k) / (1 - k), k];
 }

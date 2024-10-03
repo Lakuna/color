@@ -1,6 +1,6 @@
 import type { Color } from "../types/Color.js";
 import type Rgb from "../types/Rgb.js";
-import deltaE2000 from "../utility/deltaE2000.js";
+import deltaE00 from "../utility/deltaE00.js";
 import ntc from "./ntc.js";
 import rgbToXyz from "../utility/rgbToXyz.js";
 import xyzToLab from "../utility/xyzToLab.js";
@@ -47,5 +47,5 @@ export const getNameStandard = (
 	names: Map<string, Rgb> = ntc
 ): string =>
 	getName(color, names, (a, b) =>
-		deltaE2000(xyzToLab(rgbToXyz(a)), xyzToLab(rgbToXyz(b)))
+		deltaE00(xyzToLab(rgbToXyz(a)), xyzToLab(rgbToXyz(b)))
 	);

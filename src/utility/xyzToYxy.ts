@@ -1,6 +1,8 @@
 import type Xyz from "../types/Xyz.js";
 import type Yxy from "../types/Yxy.js";
 
+// TODO
+
 /**
  * Convert the given CIEXYZ color to Yxy format. Based on the EasyRGB pseudo-code.
  * @param color - The CIEXYZ color.

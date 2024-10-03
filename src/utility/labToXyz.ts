@@ -6,50 +6,24 @@ import getReference from "./getReference.js";
 /**
  * Convert the given CIELAB color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The CIELAB color.
- * @param reference - A standard illuminant that represents the white point.
+ * @param ref - A standard illuminant that represents the white point.
  * @returns A CIEXYZ color.
  * @public
  */
 export default function labToXyz(
 	color: Lab,
-	reference: Xyz = getReference(StandardIlluminant.D65_2)
+	ref: Xyz = getReference(StandardIlluminant.D65_2)
 ): Xyz {
-	// eslint-disable-next-line prefer-destructuring
-	const cieL = color[0];
-	// eslint-disable-next-line prefer-destructuring
-	const cieA = color[1];
-	// eslint-disable-next-line prefer-destructuring
-	const cieB = color[2];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceX = reference[0];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceY = reference[1];
-	// eslint-disable-next-line prefer-destructuring
-	const referenceZ = reference[2];
+	const i0 = (color[0] + 16) / 116;
+	const i1 = i0 ** 3;
+	const i2 = color[1] / 500 + i0;
+	const i3 = i2 ** 3;
+	const i4 = i0 - color[2] / 200;
+	const i5 = i4 ** 3;
 
-	let varY = (cieL + 16) / 116;
-	let varX = cieA / 500 + varY;
-	let varZ = varY - cieB / 200;
-
-	if (varY ** 3 > 0.008856) {
-		varY **= 3;
-	} else {
-		varY = (varY - 16 / 116) / 7.787;
-	}
-	if (varX ** 3 > 0.008856) {
-		varX **= 3;
-	} else {
-		varX = (varX - 16 / 116) / 7.787;
-	}
-	if (varZ ** 3 > 0.008856) {
-		varZ **= 3;
-	} else {
-		varZ = (varZ - 16 / 116) / 7.787;
-	}
-
-	const x = varX * referenceX;
-	const y = varY * referenceY;
-	const z = varZ * referenceZ;
-
-	return [x, y, z];
+	return [
+		(i3 > 0.008856 ? i3 : (i2 - 0.13793103) / 7.787) * ref[0], // `16 / 116`
+		(i1 > 0.008856 ? i1 : (i0 - 0.13793103) / 7.787) * ref[1], // `16 / 116`
+		(i5 > 0.008856 ? i5 : (i4 - 0.13793103) / 7.787) * ref[2] // `16 / 116`
+	];
 }

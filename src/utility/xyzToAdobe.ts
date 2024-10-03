@@ -1,6 +1,8 @@
 import type Adobe from "../types/Adobe.js";
 import type Xyz from "../types/Xyz.js";
 
+// TODO
+
 /**
  * Convert the given CIEXYZ D65/2° standard illuminant color to an Adobe RGB color. Based on the EasyRGB pseudo-code.
  * @param color - The CIEXYZ color.

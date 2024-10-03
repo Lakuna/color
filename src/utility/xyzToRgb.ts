@@ -1,6 +1,8 @@
 import type Rgb from "../types/Rgb.js";
 import type Xyz from "../types/Xyz.js";
 
+// TODO
+
 /**
  * Convert the given CIEXYZ D65/2° standard illuminant color to an sRGB color. Based on the EasyRGB pseudo-code.
  * @param color - The CIEXYZ color.
