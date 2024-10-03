@@ -59,16 +59,3 @@ export { default as xyzToLuv } from "./utility/xyzToLuv.js";
 export { default as xyzToRgb } from "./utility/xyzToRgb.js";
 export { default as xyzToYxy } from "./utility/xyzToYxy.js";
 export { default as yxyToXyz } from "./utility/yxyToXyz.js";
-// TODO: Lightest background color.
-// TODO: Darkest background color.
-// TODO: Optimal (sensible?) background color.
-// TODO: YIQ conversion (Python `colorsys.py`).
-// TODO: HSI conversion.
-// TODO: Tints, shades, and tones (color mixing).
-// TODO: Nearest web safe color.
-// TODO: Complementary color.
-// TODO: Split complementary colors.
-// TODO: Analogous colors.
-// TODO: Triadic colors.
-// TODO: Tetradic colors.
-// TODO: Color-blindness simulation: https://github.com/MaPePeR/jsColorblindSimulator
