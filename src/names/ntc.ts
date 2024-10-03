@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#ntc | Color-Name Dictionaries}
  * @public
  */
-const ntcNames: Map<string, Rgb> = new Map<string, Rgb>([
+const ntc: Map<string, Rgb> = new Map<string, Rgb>([
 	["midnight", fromHex(0x011635)],
 	["bluecharcoal", fromHex(0x010d1a)],
 	["blackpearl", fromHex(0x041322)],
@@ -1575,4 +1575,4 @@ const ntcNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["darkblue", fromHex(0x0000c8)]
 ]);
 
-export default ntcNames;
+export default ntc;

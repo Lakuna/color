@@ -2,11 +2,11 @@ import type Rgb from "../types/Rgb.js";
 import fromHex from "../utility/hexToRgb.js";
 
 /**
- * Color Naming Experiment. An improvement over X11. Good for light sources and mediocre for surface colors.
+ * Color Naming Experiment 2007. An improvement over X11. Good for light sources and mediocre for surface colors.
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#cne-2007 | Color-Name Dictionaries}
  * @public
  */
-const cne2007Names: Map<string, Rgb> = new Map<string, Rgb>([
+const cne: Map<string, Rgb> = new Map<string, Rgb>([
 	["ebony", fromHex(0x1a1a26)],
 	["cellarblack", fromHex(0x1a334c)],
 	["dutchblue", fromHex(0x3377cc)],
@@ -874,4 +874,4 @@ const cne2007Names: Map<string, Rgb> = new Map<string, Rgb>([
 	["deeproyalblue", fromHex(0x011abb)]
 ]);
 
-export default cne2007Names;
+export default cne;

@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#hollasch | Color-Name Dictionaries}
  * @public
  */
-const hollaschNames: Map<string, Rgb> = new Map<string, Rgb>([
+const hollasch: Map<string, Rgb> = new Map<string, Rgb>([
 	["cyan", fromHex(0x00ffff)],
 	["lavender", fromHex(0xe6e6fa)],
 	["bluelight", fromHex(0xadd8e6)],
@@ -200,4 +200,4 @@ const hollaschNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["indigo", fromHex(0x2e0854)]
 ]);
 
-export default hollaschNames;
+export default hollasch;

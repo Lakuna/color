@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#bang | Color-Name Dictionaries}
  * @public
  */
-const bangNames: Map<string, Rgb> = new Map<string, Rgb>([
+const bang: Map<string, Rgb> = new Map<string, Rgb>([
 	["verydeepblue", fromHex(0x00001d)],
 	["verydarkblue", fromHex(0x11111d)],
 	["deepazure", fromHex(0x002d59)],
@@ -480,4 +480,4 @@ const bangNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["strongblue", fromHex(0x0000a8)]
 ]);
 
-export default bangNames;
+export default bang;

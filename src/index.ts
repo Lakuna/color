@@ -1,14 +1,14 @@
 // Names
-export { default as bangNames } from "./names/bangNames.js";
-export { default as cne2007Names } from "./names/cne2007Names.js";
-export { default as crayolaNames } from "./names/crayolaNames.js";
+export { default as bang } from "./names/bang.js";
+export { default as cne } from "./names/cne.js";
+export { default as crayola } from "./names/crayola.js";
 export { default as getName, getNameStandard } from "./names/getName.js";
-export { default as hollaschNames } from "./names/hollaschNames.js";
-export { default as nbsIsccNames } from "./names/nbsIsccNames.js";
-export { default as ntcNames } from "./names/ntcNames.js";
-export { default as resene2010Names } from "./names/resene2010Names.js";
-export { default as x11Names } from "./names/x11Names.js";
-export { default as xkcdNames } from "./names/xkcdNames.js";
+export { default as hollasch } from "./names/hollasch.js";
+export { default as nbs } from "./names/nbs.js";
+export { default as ntc } from "./names/ntc.js";
+export { default as resene } from "./names/resene.js";
+export { default as x11 } from "./names/x11.js";
+export { default as xkcd } from "./names/xkcd.js";
 
 // Types
 export type { default as Adobe } from "./types/Adobe.js";

@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#nbs-iscc | Color-Name Dictionaries}
  * @public
  */
-const nbsIsccNames: Map<string, Rgb> = new Map<string, Rgb>([
+const nbs: Map<string, Rgb> = new Map<string, Rgb>([
 	["deepgreen", fromHex(0x00543d)],
 	["verydarkbluishgreen", fromHex(0x002a29)],
 	["verydarkgreenishblue", fromHex(0x002e3b)],
@@ -276,4 +276,4 @@ const nbsIsccNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["vividreddishpurple", fromHex(0x870074)]
 ]);
 
-export default nbsIsccNames;
+export default nbs;

@@ -1,7 +1,7 @@
 import type { Color } from "../types/Color.js";
 import type Rgb from "../types/Rgb.js";
 import deltaE2000 from "../utility/deltaE2000.js";
-import ntcNames from "./ntcNames.js";
+import ntc from "./ntc.js";
 import rgbToXyz from "../utility/rgbToXyz.js";
 import xyzToLab from "../utility/xyzToLab.js";
 
@@ -44,7 +44,7 @@ export default function getName<T extends Color>(
  */
 export const getNameStandard = (
 	color: Rgb,
-	names: Map<string, Rgb> = ntcNames
+	names: Map<string, Rgb> = ntc
 ): string =>
 	getName(color, names, (a, b) =>
 		deltaE2000(xyzToLab(rgbToXyz(a)), xyzToLab(rgbToXyz(b)))

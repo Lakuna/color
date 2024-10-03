@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#resene-2010 | Color-Name Dictionaries}
  * @public
  */
-const resene2010Names: Map<string, Rgb> = new Map<string, Rgb>([
+const resene: Map<string, Rgb> = new Map<string, Rgb>([
 	["kaitokegreen", fromHex(0x245336)],
 	["countygreen", fromHex(0x1b4b35)],
 	["zuccini", fromHex(0x17462e)],
@@ -1387,4 +1387,4 @@ const resene2010Names: Map<string, Rgb> = new Map<string, Rgb>([
 	["windsor", fromHex(0x462c77)]
 ]);
 
-export default resene2010Names;
+export default resene;

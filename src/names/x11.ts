@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#x11 | Color-Name Dictionaries}
  * @public
  */
-const x11Names: Map<string, Rgb> = new Map<string, Rgb>([
+const x11: Map<string, Rgb> = new Map<string, Rgb>([
 	["dodgerblue4", fromHex(0x104e8b)],
 	["skyblue4", fromHex(0x4a708b)],
 	["steelblue4", fromHex(0x36648b)],
@@ -464,4 +464,4 @@ const x11Names: Map<string, Rgb> = new Map<string, Rgb>([
 	["midnightblue", fromHex(0x191970)]
 ]);
 
-export default x11Names;
+export default x11;

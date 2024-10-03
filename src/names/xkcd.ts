@@ -6,7 +6,7 @@ import fromHex from "../utility/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#xkcd | Color-Name Dictionaries}
  * @public
  */
-const xkcdNames: Map<string, Rgb> = new Map<string, Rgb>([
+const xkcd: Map<string, Rgb> = new Map<string, Rgb>([
 	["dark", fromHex(0x1b2431)],
 	["darkbluegrey", fromHex(0x1f3b4d)],
 	["windowsblue", fromHex(0x3778bf)],
@@ -931,4 +931,4 @@ const xkcdNames: Map<string, Rgb> = new Map<string, Rgb>([
 	["royalblue", fromHex(0x0504aa)]
 ]);
 
-export default xkcdNames;
+export default xkcd;
