@@ -29,26 +29,26 @@
 		"build": "tsc",
 		"lint": "eslint src",
 		"doc": "typedoc src",
-		"test": "mocha",
-		"beautify": "prettier . --write"
+		"test": "node --test",
+		"beautify": "prettier . --write",
+		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.9.1",
-		"@types/chai": "^4.3.19",
+		"@eslint/js": "^9.15.0",
 		"@types/eslint": "^9.6.1",
 		"@types/eslint__js": "^8.42.3",
 		"@types/eslint-config-prettier": "^6.11.3",
-		"@types/mocha": "^10.0.7",
-		"chai": "^5.1.1",
-		"eslint": "^9.9.1",
+		"@types/node": "^22.9.0",
+		"eslint": "^9.15.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-prettier": "^5.2.1",
 		"eslint-plugin-tsdoc": "^0.3.0",
-		"mocha": "^10.7.3",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.10",
 		"prettier": "^3.3.3",
-		"typedoc": "^0.26.6",
-		"typescript": "^5.5.4",
-		"typescript-eslint": "^8.3.0"
+		"typedoc": "^0.26.11",
+		"typescript": "^5.6.3",
+		"typescript-eslint": "^8.15.0"
 	},
 	"exports": {
 		".": "./dist/index.js"

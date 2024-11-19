@@ -11,6 +11,7 @@ import xyzToLab from "../utility/xyzToLab.js";
  * @param names - The color name dictionary.
  * @param diff - The function for comparing the difference between colors.
  * @returns The nearest color name.
+ * @throws `Error` if the color name dictionary is empty.
  * @public
  */
 export default function getName<T extends Color>(
@@ -18,7 +19,11 @@ export default function getName<T extends Color>(
 	names: Map<string, T>,
 	diff: (a: T, b: T) => number
 ): string {
-	let [nearestName] = names.entries().next().value as [string, T];
+	let [nearestName] = names.entries().next().value ?? [];
+	if (typeof nearestName === "undefined") {
+		throw new Error("The color name dictionary must not be empty.");
+	}
+
 	let nearestDiff = Infinity;
 
 	for (const [name, otherColor] of names.entries()) {
