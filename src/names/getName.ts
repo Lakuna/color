@@ -20,7 +20,7 @@ export default function getName<T extends Color>(
 	diff: (a: T, b: T) => number
 ): string {
 	let [nearestName] = names.entries().next().value ?? [];
-	if (typeof nearestName === "undefined") {
+	if (!nearestName) {
 		throw new Error("The color name dictionary must not be empty.");
 	}
 
