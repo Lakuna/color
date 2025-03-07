@@ -7,6 +7,7 @@ export { default as hollasch } from "./names/hollasch.js";
 export { default as nbs } from "./names/nbs.js";
 export { default as ntc } from "./names/ntc.js";
 export { default as resene } from "./names/resene.js";
+export { default as tcapi } from "./names/tcapi.js";
 export { default as x11 } from "./names/x11.js";
 export { default as xkcd } from "./names/xkcd.js";
 
@@ -48,6 +49,7 @@ export { default as lchToLab } from "./utility/lchToLab.js";
 export { default as luvToXyz } from "./utility/luvToXyz.js";
 export { default as relativeLuminance } from "./utility/relativeLuminance.js";
 export { default as rgbToCmy } from "./utility/rgbToCmy.js";
+export { default as rgbToHex } from "./utility/rgbToHex.js";
 export { default as rgbToHsl } from "./utility/rgbToHsl.js";
 export { default as rgbToHsv } from "./utility/rgbToHsv.js";
 export { default as rgbToXyz } from "./utility/rgbToXyz.js";

@@ -12,6 +12,7 @@ import {
 	lchToLab,
 	luvToXyz,
 	rgbToCmy,
+	rgbToHex,
 	rgbToHsl,
 	rgbToHsv,
 	rgbToXyz,
@@ -24,7 +25,7 @@ import {
 	yxyToXyz
 } from "../dist/index.js";
 import { describe, it } from "node:test";
-import { ok } from "node:assert/strict";
+import { equal, ok } from "node:assert/strict";
 
 const emeraldRgb = hexToRgb(0x50c878);
 const emeraldXyz = rgbToXyz(emeraldRgb);
@@ -166,6 +167,12 @@ void describe("rgbToCmy", () => {
 		approximatelyEqual(c, 0.68627, 0.0001);
 		approximatelyEqual(m, 0.21569, 0.0001);
 		approximatelyEqual(y, 0.52941, 0.0001);
+	});
+});
+
+void describe("rgbToHex", () => {
+	void it("should return `rgbToHex(emeraldRgb) = 0x50c878`", () => {
+		equal(rgbToHex(emeraldRgb), 0x50c878);
 	});
 });
 

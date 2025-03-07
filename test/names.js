@@ -7,6 +7,7 @@ import {
 	nbs,
 	ntc,
 	resene,
+	tcapi,
 	x11,
 	xkcd
 } from "../dist/index.js";
@@ -43,6 +44,10 @@ void describe("getNameStandard", () => {
 
 	void it('should return Resene 2010 name "deyork"', () => {
 		equal(getNameStandard(emerald, resene), "deyork");
+	});
+
+	void it('should return The Color API name "Fern"', () => {
+		equal(getNameStandard(emerald, tcapi), "Fern");
 	});
 
 	void it('should return X11 name "seagreen3"', () => {
