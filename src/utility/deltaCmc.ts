@@ -30,16 +30,20 @@ export default function deltaCmc(
 	const i1 = i0 ** 4;
 	const i2 = Math.sqrt(i1 / (i1 + 1900));
 	const i3 =
-		b0 === 0
-			? a0 < 0
-				? 180
-				: 0
-			: a0 === 0
-				? b0 < 0
-					? 270
-					: 90
-				: Math.atan(b0 / a0) * 57.29577951 + // `180 / Math.PI`
-					(a0 > 0 ? (b0 > 0 ? 0 : 360) : 180);
+		b0 === 0 ?
+			a0 < 0 ?
+				180
+			:	0
+		: a0 === 0 ?
+			b0 < 0 ?
+				270
+			:	90
+		:	Math.atan(b0 / a0) * 57.29577951 + // `180 / Math.PI`
+			(a0 > 0 ?
+				b0 > 0 ?
+					0
+				:	360
+			:	180);
 	const i4 = (0.0638 * i0) / (1 + 0.0131 * i0) + 0.638;
 	const i5 = Math.hypot(a1, b1) - i0;
 
@@ -49,9 +53,9 @@ export default function deltaCmc(
 		i5 / (weight[1] * i4),
 		Math.sqrt((a1 - a0) ** 2 + (b1 - b0) ** 2 - i5 ** 2) /
 			((i2 *
-				(i3 < 164 || i3 > 345
-					? 0.36 + Math.abs(0.4 * Math.cos((35 + i3) * 0.01745329)) // `Math.PI / 180`
-					: 0.56 + Math.abs(0.2 * Math.cos((168 + i3) * 0.01745329))) + // `Math.PI / 180`
+				(i3 < 164 || i3 > 345 ?
+					0.36 + Math.abs(0.4 * Math.cos((35 + i3) * 0.01745329)) // `Math.PI / 180`
+				:	0.56 + Math.abs(0.2 * Math.cos((168 + i3) * 0.01745329))) + // `Math.PI / 180`
 				1 -
 				i2) *
 				i4)

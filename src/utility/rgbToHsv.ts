@@ -23,13 +23,18 @@ export default function rgbToHsv(color: Rgb): Hsv {
 	const i6 = ((v - i1) / 6 + i4) / i3;
 	const i7 = ((v - i2) / 6 + i4) / i3;
 	const i8 =
-		i0 === v
-			? i7 - i6
-			: i1 === v
-				? 0.33333333 + i5 - i7 // `1 / 3`
-				: i2 === v
-					? 0.66666666 + i6 - i5 // `2 / 3`
-					: 0;
+		i0 === v ? i7 - i6
+		: i1 === v ?
+			0.33333333 + i5 - i7 // `1 / 3`
+		: i2 === v ?
+			0.66666666 + i6 - i5 // `2 / 3`
+		:	0;
 
-	return [i8 < 0 ? i8 + 1 : i8 > 1 ? i8 - 1 : i8, i3 / v, v];
+	return [
+		i8 < 0 ? i8 + 1
+		: i8 > 1 ? i8 - 1
+		: i8,
+		i3 / v,
+		v
+	];
 }

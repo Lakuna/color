@@ -9,15 +9,20 @@ import type Lch from "../types/Lch.js";
  * @internal
  */
 const cieLabToHue = (a: number, b: number): number =>
-	b === 0
-		? a < 0
-			? 180
-			: 0
-		: a === 0
-			? b < 0
-				? 270
-				: 90
-			: Math.atan(b / a) * 57.29577951 + (a > 0 ? (b > 0 ? 0 : 360) : 180); // `180 / Math.PI`
+	b === 0 ?
+		a < 0 ?
+			180
+		:	0
+	: a === 0 ?
+		b < 0 ?
+			270
+		:	90
+	:	Math.atan(b / a) * 57.29577951 +
+		(a > 0 ?
+			b > 0 ?
+				0
+			:	360
+		:	180); // `180 / Math.PI`
 
 /**
  * Calculates the ΔE* 2000 (also called the CIEDE2000) between two CIELAB values. Based on the EasyRGB pseudocode.
@@ -58,26 +63,22 @@ export default function deltaE00(
 	const i9 = i3 * i6;
 	const i10 = i4 + i7;
 	const i11 =
-		i9 === 0
-			? i10
-			: Math.abs(i4 - i7) > 180
-				? i10 < 360
-					? (i10 + 360) / 2
-					: (i10 - 360) / 2
-				: i10 / 2;
+		i9 === 0 ? i10
+		: Math.abs(i4 - i7) > 180 ?
+			i10 < 360 ?
+				(i10 + 360) / 2
+			:	(i10 - 360) / 2
+		:	i10 / 2;
 	const i12 = (i6 - i3) / (weight[1] * (1 + 0.045 * i8));
 	const i13 = i7 - i4;
 	const i14 =
 		(2 *
 			Math.sqrt(i9) *
 			Math.sin(
-				((i9 === 0
-					? 0
-					: Math.abs(i13) <= 180
-						? i13
-						: i13 > 180
-							? i13 - 360
-							: i13 + 360) /
+				((i9 === 0 ? 0
+				: Math.abs(i13) <= 180 ? i13
+				: i13 > 180 ? i13 - 360
+				: i13 + 360) /
 					2) *
 					0.01745329 // `Math.PI / 180`
 			)) /

@@ -10,16 +10,18 @@ import type Rgb from "../types/Rgb.js";
  * @internal
  */
 const hueToRgb = (v0: number, v1: number, h: number): number => {
-	const i0 = h < 0 ? h + 1 : h > 1 ? h - 1 : h;
+	const i0 =
+		h < 0 ? h + 1
+		: h > 1 ? h - 1
+		: h;
 	const i1 = 6 * i0;
 	const i2 = v1 - v0;
-	return i1 < 1
-		? v0 + i2 * i1
-		: 2 * i0 < 1
-			? v1
-			: 3 * i0 < 2
-				? v0 + i2 * (2 / 3 - i0) * 6
-				: v0;
+	return (
+		i1 < 1 ? v0 + i2 * i1
+		: 2 * i0 < 1 ? v1
+		: 3 * i0 < 2 ? v0 + i2 * (2 / 3 - i0) * 6
+		: v0
+	);
 };
 
 /**

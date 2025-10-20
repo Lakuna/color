@@ -17,7 +17,7 @@ export default function cmyToCmyk(color: Cmy): Cmyk {
 
 	const k = Math.min(c, m, y, 1);
 
-	return k === 1
-		? [0, 0, 0, 1]
-		: [(c - k) / (1 - k), (m - k) / (1 - k), (y - k) / (1 - k), k];
+	return k === 1 ?
+			[0, 0, 0, 1]
+		:	[(c - k) / (1 - k), (m - k) / (1 - k), (y - k) / (1 - k), k];
 }

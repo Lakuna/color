@@ -40,5 +40,9 @@ export default function hsvToRgb(color: Hsv): Rgb {
 
 	const i7 = v * (1 - s * i4) * 0xff;
 
-	return i3 === 1 ? [i7, i0, i6] : i3 === 3 ? [i6, i7, i0] : [i0, i6, i7];
+	return (
+		i3 === 1 ? [i7, i0, i6]
+		: i3 === 3 ? [i6, i7, i0]
+		: [i0, i6, i7]
+	);
 }
