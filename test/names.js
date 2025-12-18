@@ -18,8 +18,8 @@ import { getNameStandard } from "../dist/names/getName.js";
 void describe("getNameStandard", () => {
 	const emerald = hexToRgb(0x50c878);
 
-	void it('should return Bang name "brilliantspringgreen"', () => {
-		equal(getNameStandard(emerald, bang), "brilliantspringgreen");
+	void it('should return Bang name "brilliant spring green"', () => {
+		equal(getNameStandard(emerald, bang), "brilliant spring green");
 	});
 
 	void it('should return CNE 2007 name "algae"', () => {
@@ -30,31 +30,31 @@ void describe("getNameStandard", () => {
 		equal(getNameStandard(emerald, crayola), "fern");
 	});
 
-	void it('should return Hollasch name "emeraldgreen"', () => {
-		equal(getNameStandard(emerald, hollasch), "emeraldgreen");
+	void it('should return Hollasch name "emerald green"', () => {
+		equal(getNameStandard(emerald, hollasch), "emerald green");
 	});
 
-	void it('should return NBS ISCC name "brilliantyellowishgreen"', () => {
-		equal(getNameStandard(emerald, nbs), "brilliantyellowishgreen");
+	void it('should return NBS ISCC name "brilliant yellowish green"', () => {
+		equal(getNameStandard(emerald, nbs), "brilliant yellowish green");
 	});
 
 	void it('should return Name That Color name "emerald"', () => {
 		equal(getNameStandard(emerald, ntc), "emerald");
 	});
 
-	void it('should return Resene 2010 name "deyork"', () => {
-		equal(getNameStandard(emerald, resene), "deyork");
+	void it('should return Resene 2010 name "de york"', () => {
+		equal(getNameStandard(emerald, resene), "de york");
 	});
 
-	void it('should return The Color API name "Fern"', () => {
-		equal(getNameStandard(emerald, tcapi), "Fern");
+	void it('should return The Color API name "fern"', () => {
+		equal(getNameStandard(emerald, tcapi), "fern");
 	});
 
-	void it('should return X11 name "seagreen3"', () => {
-		equal(getNameStandard(emerald, x11), "seagreen3");
+	void it('should return X11 name "sea green 3"', () => {
+		equal(getNameStandard(emerald, x11), "sea green 3");
 	});
 
 	void it('should return XKCD name "darkmint"', () => {
-		equal(getNameStandard(emerald, xkcd), "darkmint");
+		equal(getNameStandard(emerald, xkcd), "dark mint");
 	});
 });
