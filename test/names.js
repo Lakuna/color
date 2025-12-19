@@ -54,7 +54,7 @@ void describe("getNameStandard", () => {
 		equal(getNameStandard(emerald, x11), "sea green 3");
 	});
 
-	void it('should return XKCD name "darkmint"', () => {
+	void it('should return XKCD name "dark mint"', () => {
 		equal(getNameStandard(emerald, xkcd), "dark mint");
 	});
 });

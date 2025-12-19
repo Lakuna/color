@@ -11,6 +11,11 @@ export { default as tcapi } from "./names/tcapi.js";
 export { default as x11 } from "./names/x11.js";
 export { default as xkcd } from "./names/xkcd.js";
 
+// Palette
+export { default as analogous } from "./palette/analogous.js";
+export { default as complement } from "./palette/complement.js";
+export { default as splitComplement } from "./palette/splitComplement.js";
+
 // Types
 export type { default as Adobe } from "./types/Adobe.js";
 export type { default as Cmy } from "./types/Cmy.js";
