@@ -6,7 +6,7 @@ import type { Color } from "./Color.js";
  * @public
  */
 export default interface Hsl extends Color {
-	/** The hue channel of this color in the range `[0,1]`. */
+	/** The hue channel of this color in the range `[0,1]`. Multiply this value by 360 to get the hue angle in degrees. */
 	0: number;
 
 	/** The saturation channel of this color in the range `[0,1]`. */

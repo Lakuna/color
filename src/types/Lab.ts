@@ -1,7 +1,7 @@
 import type { Color } from "./Color.js";
 
 /**
- * A CIELAB (L*a*b*) representation of a color. Intended to be a perceptually uniform space. Derived from CIEXYZ. Colors are defined relative to a standard observer. Compared to CIELUV, CIELAB is considered better for reflective surface colors.
+ * A CIELAB (L\*a\*b\* or CIE-L\*ab) representation of a color. Intended to be a perceptually uniform space. Derived from CIEXYZ. Colors are defined relative to a standard observer. Compared to CIELUV, CIELAB is considered better for reflective surface colors.
  * @see {@link https://en.wikipedia.org/wiki/CIELAB_color_space | CIELAB color space}
  * @public
  */

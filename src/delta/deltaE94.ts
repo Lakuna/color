@@ -1,5 +1,5 @@
 import type Lab from "../types/Lab.js";
-import type Lch from "../types/Lch.js";
+import type Lchab from "../types/Lchab.js";
 
 /**
  * Calculates the ΔE* 1994 between two CIELAB values. Based on the EasyRGB pseudocode.
@@ -13,7 +13,7 @@ import type Lch from "../types/Lch.js";
 export default function deltaE94(
 	color0: Lab,
 	color1: Lab,
-	weight: Lch = [1, 1, 1]
+	weight: Lchab = [1, 1, 1]
 ): number {
 	// eslint-disable-next-line prefer-destructuring
 	const l0 = color0[0];

@@ -1,6 +1,9 @@
 import type Adobe from "../types/Adobe.js";
 import type Xyz from "../types/Xyz.js";
 
+const gamma = 2.19921875;
+const f = 100 / 0xff ** gamma;
+
 /**
  * Convert the given Adobe RGB color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The Adobe RGB color.
@@ -8,9 +11,9 @@ import type Xyz from "../types/Xyz.js";
  * @public
  */
 export default function adobeToXyz(color: Adobe): Xyz {
-	const i0 = color[0] ** 2.19921875 * 0.00050991; // `(x / 0xff) ** 2.19921875 * 100`
-	const i1 = color[1] ** 2.19921875 * 0.00050991; // `(x / 0xff) ** 2.19921875 * 100`
-	const i2 = color[2] ** 2.19921875 * 0.00050991; // `(x / 0xff) ** 2.19921875 * 100`
+	const i0 = color[0] ** gamma * f; // `(color[0] / 0xff) ** gamma * 100`
+	const i1 = color[1] ** gamma * f; // `(color[1] / 0xff) ** gamma * 100`
+	const i2 = color[2] ** gamma * f; // `(color[2] / 0xff) ** gamma * 100`
 
 	return [
 		i0 * 0.57667 + i1 * 0.18555 + i2 * 0.18819,

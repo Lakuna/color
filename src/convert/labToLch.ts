@@ -1,14 +1,25 @@
 import type Lab from "../types/Lab.js";
-import type Lch from "../types/Lch.js";
+import type Lchab from "../types/Lchab.js";
+import type Lchuv from "../types/Lchuv.js";
 import type Luv from "../types/Luv.js";
 
 /**
- * Convert the given CIELAB or CIELUV color to a CIELCh(ab) or CIELCh(uv) (respectively) color. Based on the EasyRGB pseudo-code.
- * @param color - The CIELAB or CIELUV color.
+ * Convert the given CIELAB color to a CIELCh(ab) color. Based on the EasyRGB pseudo-code.
+ * @param color - The CIELAB color.
  * @returns A CIELCh color.
  * @public
  */
-export default function labToLch(color: Lab | Luv): Lch {
+export default function labToLch(color: Lab): Lchab;
+
+/**
+ * Convert the given CIELUV color to a CIELCh(uv) color. Based on the EasyRGB pseudo-code.
+ * @param color - The CIELUV color.
+ * @returns A CIELCh color.
+ * @public
+ */
+export default function labToLch(color: Luv): Lchuv;
+
+export default function labToLch(color: Lab | Luv): Lchab | Lchuv {
 	// eslint-disable-next-line prefer-destructuring
 	const a = color[1];
 	// eslint-disable-next-line prefer-destructuring

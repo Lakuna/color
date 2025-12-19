@@ -1,5 +1,5 @@
 import type Lab from "../types/Lab.js";
-import type Lch from "../types/Lch.js";
+import type Lchab from "../types/Lchab.js";
 
 /**
  * Convert CIELAB data to hue data.
@@ -36,7 +36,7 @@ const cieLabToHue = (a: number, b: number): number =>
 export default function deltaE00(
 	color0: Lab,
 	color1: Lab,
-	weight: Lch = [1, 1, 1]
+	weight: Lchab = [1, 1, 1]
 ): number {
 	// eslint-disable-next-line prefer-destructuring
 	const l0 = color0[0];
