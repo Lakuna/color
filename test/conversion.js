@@ -1,8 +1,10 @@
 import {
+	StandardIlluminant,
 	adobeToXyz,
 	cmyToCmyk,
 	cmyToRgb,
 	cmykToCmy,
+	getReference,
 	hexToRgb,
 	hslToRgb,
 	hsvToRgb,
@@ -42,6 +44,7 @@ const lchab = [72.473, 59.515, 149.445];
 const luv = [72.473, -52.102, 48.912];
 const lchuv = [72.473, 71.464, 136.809];
 const hunter = [66.609, -40.344, 21.649];
+const hunterC = [66.609, -43.271, 24.471];
 
 const approximatelyEqual = (actual, expected, delta) => {
 	ok(Math.abs(actual - expected) < delta);
@@ -173,6 +176,14 @@ void describe("xyzToAdobe", () => {
 void describe("xyzToHunter", () => {
 	void it("should return `xyzToHunter(xyz) = hunter`", () => {
 		approximatelyEqualArray(xyzToHunter(xyz), hunter, 0.01);
+	});
+
+	void it("should return `xyzToHunter(xyz, C_2) = hunterC`", () => {
+		approximatelyEqualArray(
+			xyzToHunter(xyz, getReference(StandardIlluminant.C_2)),
+			hunterC,
+			0.1
+		);
 	});
 });
 

@@ -6,7 +6,7 @@ import getReference from "../utility/getReference.js";
 /**
  * Convert the given CIEXYZ color to a Hunter Lab color. Based on the EasyRGB pseudo-code.
  * @param color - The CIEXYZ color.
- * @param ref - A standard illuminant that represents the white point.
+ * @param ref - A standard illuminant that represents the white point. This color space was originally used with standard illuminant C.
  * @returns A Hunter Lab color.
  * @public
  */
