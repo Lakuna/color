@@ -6,10 +6,10 @@ import type { Color } from "./Color.js";
  * @public
  */
 export default interface Lchab extends Color {
-	/** The L* (perceptual brightness) value of this color in the range `[0,100]`. */
+	/** The L* (luminance or perceptual brightness) value of this color in the range `[0,100]`. */
 	0: number;
 
-	/** The C* (chroma or relative saturation) value of this color. Forms a polar coordinate pair with h° to represent the four unique colors of human vision (red, green, blue, and yellow). */
+	/** The C* (chroma/chromaticity or relative saturation) value of this color. Forms a polar coordinate pair with h° to represent the four unique colors of human vision (red, green, blue, and yellow). */
 	1: number;
 
 	/** The h° (hue angle) value of this color. Forms a polar coordinate pair with C* to represent the four unique colors of human vision (red, green, blue, and yellow). */
