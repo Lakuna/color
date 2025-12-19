@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * `rgb.txt` from the X11 window system distribution. Most colors are too bright. Suitable for light sources, but poorly suited for surface colors.

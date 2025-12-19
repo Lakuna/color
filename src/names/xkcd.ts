@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * XKCD Color Name Survey. Better than the Color Naming Experiment and X11 for surface colors, but many of its colors will not print faithfully. Some color names contain profanity.

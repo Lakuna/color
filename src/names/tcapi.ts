@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * The Color API. Most names appear to come from the Name That Color color name dictionary.

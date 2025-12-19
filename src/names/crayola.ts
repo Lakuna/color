@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * Crayola Crayon Colors. Colors are not uniformly distributed. Insufficient variety of distinct colors for computer use.

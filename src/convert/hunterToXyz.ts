@@ -1,7 +1,7 @@
 import type Hunter from "../types/Hunter.js";
-import StandardIlluminant from "./StandardIlluminant.js";
+import StandardIlluminant from "../utility/StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
-import getReference from "./getReference.js";
+import getReference from "../utility/getReference.js";
 
 /**
  * Convert the given Hunter Lab color to a CIEXYZ color. Based on the EasyRGB pseudo-code.

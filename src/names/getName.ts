@@ -1,9 +1,9 @@
 import type { Color } from "../types/Color.js";
 import type Rgb from "../types/Rgb.js";
-import deltaE00 from "../utility/deltaE00.js";
+import deltaE00 from "../delta/deltaE00.js";
 import ntc from "./ntc.js";
-import rgbToXyz from "../utility/rgbToXyz.js";
-import xyzToLab from "../utility/xyzToLab.js";
+import rgbToXyz from "../convert/rgbToXyz.js";
+import xyzToLab from "../convert/xyzToLab.js";
 
 /**
  * Get the name of the nearest color in the given color name dictionary.

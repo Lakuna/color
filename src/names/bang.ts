@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * Bang's RGB color names. The dark est RGB octant has more colors than x11, but the midtones are sparse. Similar to nbs-iscc.

@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * NBS/ISCC Centroids. Improved version by John Foster that fixes the human errors in David Mundie's version. Good source for surface colors.

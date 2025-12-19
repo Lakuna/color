@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * Name That Color. Most colors come from the 2001 Resene dictionary. Since it assigns primary colors to RGB extrema, it is better to use a pigment-based dictionary for specifying surface colors.

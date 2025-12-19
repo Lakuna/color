@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * Resene-2010 Paint Colors. Identical to Resene-2007 Paint Colors aside from "aluminum," "chamois," and "mahogany." The whitepoint and blackpoint have been moderated since the 2001 version. Excellent source for surface colors.

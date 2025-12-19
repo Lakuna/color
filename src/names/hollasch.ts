@@ -1,5 +1,5 @@
 import type Rgb from "../types/Rgb.js";
-import fromHex from "../utility/hexToRgb.js";
+import fromHex from "../convert/hexToRgb.js";
 
 /**
  * Hollasch `colors.txt`. Compiled by Steve Hollasch. Looks fine for light sources, and appears better than `rgb.txt` for surface colors.
