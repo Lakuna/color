@@ -7,6 +7,6 @@ import type Rgb from "../types/Rgb.js";
  * @returns An sRGB color.
  * @public
  */
-export default function cmyToRgb(color: Cmy): Rgb {
+export default function cmyToRgb(color: Cmy): Rgb & [number, number, number] {
 	return [(1 - color[0]) * 0xff, (1 - color[1]) * 0xff, (1 - color[2]) * 0xff];
 }

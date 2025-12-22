@@ -1,6 +1,9 @@
 import type Hsl from "../types/Hsl.js";
 import type Rgb from "../types/Rgb.js";
 
+const c0 = 2 / 3;
+const c1 = 1 / 3;
+
 /**
  * Converts the given hue data to RGB data.
  * @param v0 - The first piecewise value.
@@ -19,7 +22,7 @@ const hueToRgb = (v0: number, v1: number, h: number): number => {
 	return (
 		i1 < 1 ? v0 + i2 * i1
 		: 2 * i0 < 1 ? v1
-		: 3 * i0 < 2 ? v0 + i2 * (2 / 3 - i0) * 6
+		: 3 * i0 < 2 ? v0 + i2 * (c0 - i0) * 6
 		: v0
 	);
 };
@@ -30,7 +33,7 @@ const hueToRgb = (v0: number, v1: number, h: number): number => {
  * @returns An sRGB color.
  * @public
  */
-export default function hslToRgb(color: Hsl): Rgb {
+export default function hslToRgb(color: Hsl): Rgb & [number, number, number] {
 	// eslint-disable-next-line prefer-destructuring
 	const h = color[0];
 	// eslint-disable-next-line prefer-destructuring
@@ -48,8 +51,8 @@ export default function hslToRgb(color: Hsl): Rgb {
 	const i2 = 2 * l - i1;
 
 	return [
-		0xff * hueToRgb(i2, i1, h + 1 / 3),
+		0xff * hueToRgb(i2, i1, h + c1),
 		0xff * hueToRgb(i2, i1, h),
-		0xff * hueToRgb(i2, i1, h - 1 / 3)
+		0xff * hueToRgb(i2, i1, h - c1)
 	];
 }

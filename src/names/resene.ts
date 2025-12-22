@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#resene-2010 | Color-Name Dictionaries}
  * @public
  */
-const resene: Map<string, Rgb> = new Map<string, Rgb>([
+const resene: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["kaitoke green", fromHex(0x245336)],
 	["county green", fromHex(0x1b4b35)],
 	["zuccini", fromHex(0x17462e)],

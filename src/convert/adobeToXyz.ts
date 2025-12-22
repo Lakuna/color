@@ -11,7 +11,9 @@ const f = 100 / 0xff ** gamma; // `(x / 0xff) ** gamma * 100)` is equivalent to 
  * @returns A CIEXYZ color.
  * @public
  */
-export default function adobeToXyz(color: Adobe): Xyz {
+export default function adobeToXyz(
+	color: Adobe
+): Xyz & [number, number, number] {
 	const i0 = color[0] ** gamma * f;
 	const i1 = color[1] ** gamma * f;
 	const i2 = color[2] ** gamma * f;

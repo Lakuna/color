@@ -8,7 +8,7 @@ import type Xyz from "../types/Xyz.js";
  */
 export default function getReference(
 	standardIlluminant: StandardIlluminant
-): Xyz {
+): Xyz & [number, number, number] {
 	switch (standardIlluminant) {
 		case StandardIlluminant.A_10:
 			return [111.144, 100, 35.2];

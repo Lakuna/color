@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#nbs-iscc | Color-Name Dictionaries}
  * @public
  */
-const nbs: Map<string, Rgb> = new Map<string, Rgb>([
+const nbs: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["deep green", fromHex(0x00543d)],
 	["very dark bluish green", fromHex(0x002a29)],
 	["very dark greenish blue", fromHex(0x002e3b)],

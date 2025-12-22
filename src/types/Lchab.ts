@@ -1,7 +1,7 @@
 import type { Color } from "./Color.js";
 
 /**
- * A CIELCh (CIEHLC or CIE-L*Ch(ab)) representation of a color. Intended to be a perceptually uniform space. Colors are defined relative to a standard observer.
+ * A CIELCh (CIEHLC or CIE-L\*Ch(ab)) representation of a color. Intended to be a perceptually uniform space. Colors are defined relative to a standard observer.
  * @see {@link https://en.wikipedia.org/wiki/CIELAB_color_space | CIELAB color space}
  * @public
  */

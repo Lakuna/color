@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#crayola | Color-Name Dictionaries}
  * @public
  */
-const crayola: Map<string, Rgb> = new Map<string, Rgb>([
+const crayola: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["black", fromHex(0x232323)],
 	["outer space", fromHex(0x414a4c)],
 	["midnight blue", fromHex(0x1a4876)],

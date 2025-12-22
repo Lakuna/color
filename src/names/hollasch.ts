@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#hollasch | Color-Name Dictionaries}
  * @public
  */
-const hollasch: Map<string, Rgb> = new Map<string, Rgb>([
+const hollasch: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["cyan", fromHex(0x00ffff)],
 	["lavender", fromHex(0xe6e6fa)],
 	["blue light", fromHex(0xadd8e6)],

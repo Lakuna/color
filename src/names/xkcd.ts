@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#xkcd | Color-Name Dictionaries}
  * @public
  */
-const xkcd: Map<string, Rgb> = new Map<string, Rgb>([
+const xkcd: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["dark", fromHex(0x1b2431)],
 	["dark blue grey", fromHex(0x1f3b4d)],
 	["windows blue", fromHex(0x3778bf)],

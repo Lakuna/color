@@ -7,7 +7,7 @@ import type Yxy from "../types/Yxy.js";
  * @returns The CIEXYZ color in yxy format.
  * @public
  */
-export default function xyzToYxy(color: Xyz): Yxy {
+export default function xyzToYxy(color: Xyz): Yxy & [number, number, number] {
 	// eslint-disable-next-line prefer-destructuring
 	const X = color[0];
 	// eslint-disable-next-line prefer-destructuring

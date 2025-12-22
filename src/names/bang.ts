@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#bang | Color-Name Dictionaries}
  * @public
  */
-const bang: Map<string, Rgb> = new Map<string, Rgb>([
+const bang: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["very deep blue", fromHex(0x00001d)],
 	["very dark blue", fromHex(0x11111d)],
 	["deep azure", fromHex(0x002d59)],

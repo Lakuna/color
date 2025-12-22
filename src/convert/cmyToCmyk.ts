@@ -7,7 +7,9 @@ import type Cmyk from "../types/Cmyk.js";
  * @returns A CMYK color.
  * @public
  */
-export default function cmyToCmyk(color: Cmy): Cmyk {
+export default function cmyToCmyk(
+	color: Cmy
+): Cmyk & [number, number, number, number] {
 	// eslint-disable-next-line prefer-destructuring
 	const c = color[0];
 	// eslint-disable-next-line prefer-destructuring

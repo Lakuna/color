@@ -3,6 +3,10 @@ import StandardIlluminant from "../utility/StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
 import getReference from "../utility/getReference.js";
 
+const c0 = 0.008856;
+const c1 = 16 / 116;
+const c2 = 7.787;
+
 /**
  * Convert the given CIELAB color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The CIELAB color.
@@ -13,7 +17,7 @@ import getReference from "../utility/getReference.js";
 export default function labToXyz(
 	color: Lab,
 	ref: Xyz = getReference(StandardIlluminant.D65_2)
-): Xyz {
+): Xyz & [number, number, number] {
 	const i0 = (color[0] + 16) / 116;
 	const i1 = i0 ** 3;
 	const i2 = color[1] / 500 + i0;
@@ -22,8 +26,8 @@ export default function labToXyz(
 	const i5 = i4 ** 3;
 
 	return [
-		(i3 > 0.008856 ? i3 : (i2 - 0.13793103) / 7.787) * ref[0], // `16 / 116`
-		(i1 > 0.008856 ? i1 : (i0 - 0.13793103) / 7.787) * ref[1], // `16 / 116`
-		(i5 > 0.008856 ? i5 : (i4 - 0.13793103) / 7.787) * ref[2] // `16 / 116`
+		(i3 > c0 ? i3 : (i2 - c1) / c2) * ref[0],
+		(i1 > c0 ? i1 : (i0 - c1) / c2) * ref[1],
+		(i5 > c0 ? i5 : (i4 - c1) / c2) * ref[2]
 	];
 }

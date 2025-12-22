@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#cne-2007 | Color-Name Dictionaries}
  * @public
  */
-const cne: Map<string, Rgb> = new Map<string, Rgb>([
+const cne: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["ebony", fromHex(0x1a1a26)],
 	["cellar black", fromHex(0x1a334c)],
 	["dutch blue", fromHex(0x3377cc)],

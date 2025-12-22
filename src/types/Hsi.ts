@@ -1,0 +1,17 @@
+import type { Color } from "./Color.js";
+
+/**
+ * An HSI representation of a color. Commonly used in computer vision applications.
+ * @see {@link https://en.wikipedia.org/wiki/HSL_and_HSV | HSL and HSV}
+ * @public
+ */
+export default interface Hsi extends Color {
+	/** The hue channel of this color in the range `[0,1]`. Multiply this value by 360 to get the hue angle in degrees. */
+	0: number;
+
+	/** The saturation channel of this color in the range `[0,1]`. */
+	1: number;
+
+	/** The intensity channel of this color in the range `[0,1]`. */
+	2: number;
+}

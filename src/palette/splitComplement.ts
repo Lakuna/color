@@ -1,3 +1,4 @@
+import type Hsi from "../types/Hsi.js";
 import type Hsl from "../types/Hsl.js";
 import type Hsv from "../types/Hsv.js";
 
@@ -6,47 +7,59 @@ const d = 360;
 
 /**
  * Determine the split complementary colors of the given color.
- * @param c - The color to find the split complements of in HSL.
+ * @param color - The color to find the split complements of in HSI.
  * @param subdivisions - The number of slices to divide the color wheel into.
  * @returns The complements of the given color.
  * @public
  */
 export default function splitComplement(
-	c: Hsl,
+	color: Hsi,
 	subdivisions?: number
-): [Hsl, Hsl];
+): [Hsi & [number, number, number], Hsi & [number, number, number]];
 
 /**
  * Determine the split complementary colors of the given color.
- * @param c - The color to find the split complements of in HSV.
+ * @param color - The color to find the split complements of in HSL.
  * @param subdivisions - The number of slices to divide the color wheel into.
  * @returns The complements of the given color.
  * @public
  */
 export default function splitComplement(
-	c: Hsv,
+	color: Hsl,
 	subdivisions?: number
-): [Hsv, Hsv];
+): [Hsl & [number, number, number], Hsl & [number, number, number]];
+
+/**
+ * Determine the split complementary colors of the given color.
+ * @param color - The color to find the split complements of in HSV.
+ * @param subdivisions - The number of slices to divide the color wheel into.
+ * @returns The complements of the given color.
+ * @public
+ */
+export default function splitComplement(
+	color: Hsv,
+	subdivisions?: number
+): [Hsv & [number, number, number], Hsv & [number, number, number]];
 
 export default function splitComplement(
-	c: Hsl | Hsv,
+	color: Hsi | Hsl | Hsv,
 	subdivisions = 12
-): [Hsl, Hsl] | [Hsv, Hsv] {
+):
+	| [Hsi & [number, number, number], Hsi & [number, number, number]]
+	| [Hsl & [number, number, number], Hsl & [number, number, number]]
+	| [Hsv & [number, number, number], Hsv & [number, number, number]] {
 	// eslint-disable-next-line prefer-destructuring
-	const h = c[0];
+	const s = color[1];
 	// eslint-disable-next-line prefer-destructuring
-	const s = c[1];
-	// eslint-disable-next-line prefer-destructuring
-	const x = c[2];
+	const x = color[2];
 
-	const hueAngle = h * d;
 	const deltaAngle = d / subdivisions;
-	const oppositeAngle = hueAngle + d / 2;
-	const a = oppositeAngle - deltaAngle;
-	const b = oppositeAngle + deltaAngle;
+	const oppositeAngle = color[0] * d + d / 2;
+	const underAngle = oppositeAngle - deltaAngle;
+	const overAngle = oppositeAngle + deltaAngle;
 
 	return [
-		[(a > d ? a - d : a) / d, s, x],
-		[(b > d ? b - d : b) / d, s, x]
+		[(underAngle > d ? underAngle - d : underAngle) / d, s, x],
+		[(overAngle > d ? overAngle - d : overAngle) / d, s, x]
 	];
 }

@@ -7,7 +7,7 @@ import type Rgb from "../types/Rgb.js";
  * @returns An sRGB color.
  * @public
  */
-export default function hsvToRgb(color: Hsv): Rgb {
+export default function hsvToRgb(color: Hsv): Rgb & [number, number, number] {
 	// eslint-disable-next-line prefer-destructuring
 	const s = color[1];
 	// eslint-disable-next-line prefer-destructuring

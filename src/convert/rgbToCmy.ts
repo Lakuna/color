@@ -7,6 +7,6 @@ import type Rgb from "../types/Rgb.js";
  * @returns A CMY color.
  * @public
  */
-export default function rgbToCmy(color: Rgb): Cmy {
+export default function rgbToCmy(color: Rgb): Cmy & [number, number, number] {
 	return [1 - color[0] / 0xff, 1 - color[1] / 0xff, 1 - color[2] / 0xff];
 }

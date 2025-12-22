@@ -1,24 +1,26 @@
-import type Hsv from "../types/Hsv.js";
+import type Hsi from "../types/Hsi.js";
 import type Rgb from "../types/Rgb.js";
 
 const c0 = 1 / 3;
 const c1 = 2 / 3;
 
 /**
- * Convert the given sRGB color to an HSV color. Based on the EasyRGB pseudo-code.
+ * Convert the given sRGB color to an HSI color.
  * @param color - The sRGB color.
- * @returns An HSV color.
+ * @returns An HSI color.
  * @public
  */
-export default function rgbToHsv(color: Rgb): Hsv & [number, number, number] {
+export default function rgbToHsi(color: Rgb): Hsi & [number, number, number] {
 	const i0 = color[0] / 0xff;
 	const i1 = color[1] / 0xff;
 	const i2 = color[2] / 0xff;
+	const i = (i0 + i1 + i2) / 3;
 	const v = Math.max(i0, i1, i2);
-	const c = v - Math.min(i0, i1, i2);
+	const m = Math.min(i0, i1, i2);
+	const c = v - m;
 
 	if (c === 0) {
-		return [0, 0, v];
+		return [0, 0, i];
 	}
 
 	const i4 = c / 2;
@@ -35,7 +37,7 @@ export default function rgbToHsv(color: Rgb): Hsv & [number, number, number] {
 		i8 < 0 ? i8 + 1
 		: i8 > 1 ? i8 - 1
 		: i8,
-		v === 0 ? 0 : c / v,
-		v
+		i === 0 ? 0 : 1 - m / i,
+		i
 	];
 }

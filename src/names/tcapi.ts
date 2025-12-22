@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://www.thecolorapi.com/ | The Color API}
  * @public
  */
-const tcapi: Map<string, Rgb> = new Map<string, Rgb>([
+const tcapi: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["black", fromHex(0x000000)],
 	["navy blue", fromHex(0x000080)],
 	["dark blue", fromHex(0x0000c8)],

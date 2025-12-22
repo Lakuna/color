@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#ntc | Color-Name Dictionaries}
  * @public
  */
-const ntc: Map<string, Rgb> = new Map<string, Rgb>([
+const ntc: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["midnight", fromHex(0x011635)],
 	["blue charcoal", fromHex(0x010d1a)],
 	["black pearl", fromHex(0x041322)],

@@ -1,6 +1,10 @@
 import type Lab from "../types/Lab.js";
 import type Lchab from "../types/Lchab.js";
 
+const c0 = 180 / Math.PI;
+const c1 = 25 ** 7;
+const c2 = Math.PI / 180;
+
 /**
  * Convert CIELAB data to hue data.
  * @param a - An input CIELAB value.
@@ -17,12 +21,12 @@ const cieLabToHue = (a: number, b: number): number =>
 		b < 0 ?
 			270
 		:	90
-	:	Math.atan(b / a) * 57.29577951 +
+	:	Math.atan(b / a) * c0 +
 		(a > 0 ?
 			b > 0 ?
 				0
 			:	360
-		:	180); // `180 / Math.PI`
+		:	180);
 
 /**
  * Calculates the ΔE* 2000 (also called the CIEDE2000) between two CIELAB values. Based on the EasyRGB pseudocode.
@@ -52,7 +56,7 @@ export default function deltaE00(
 	const b1 = color1[2];
 
 	const i0 = ((Math.hypot(a0, b0) + Math.hypot(a1, b1)) / 2) ** 7;
-	const i1 = 0.5 * (1 - Math.sqrt(i0 / (i0 + 6103515625))); // `25 ** 7
+	const i1 = 0.5 * (1 - Math.sqrt(i0 / (i0 + c1)));
 	const i2 = (1 + i1) * a0;
 	const i3 = Math.hypot(i2, b0);
 	const i4 = cieLabToHue(i2, b0);
@@ -80,17 +84,17 @@ export default function deltaE00(
 				: i13 > 180 ? i13 - 360
 				: i13 + 360) /
 					2) *
-					0.01745329 // `Math.PI / 180`
+					c2
 			)) /
 		(weight[2] *
 			(1 +
 				0.015 *
 					i8 *
 					(1 -
-						0.17 * Math.cos((i11 - 30) * 0.01745329) + // `Math.PI / 180`
-						0.24 * Math.cos(2 * i11 * 0.01745329) + // `Math.PI / 180`
-						0.32 * Math.cos((3 * i11 + 6) * 0.01745329) - // `Math.PI / 180`
-						0.2 * Math.cos((4 * i11 - 63) * 0.01745329)))); // `Math.PI / 180`
+						0.17 * Math.cos((i11 - 30) * c2) +
+						0.24 * Math.cos(2 * i11 * c2) +
+						0.32 * Math.cos((3 * i11 + 6) * c2) -
+						0.2 * Math.cos((4 * i11 - 63) * c2))));
 	const i15 = i8 ** 7;
 	const i16 = ((l0 + l1) / 2 - 50) ** 2;
 
@@ -98,8 +102,8 @@ export default function deltaE00(
 		((l1 - l0) / (weight[0] * (1 + (0.015 * i16) / Math.sqrt(20 + i16)))) ** 2 +
 			i12 ** 2 +
 			i14 ** 2 +
-			-Math.sin(2 * (30 * Math.exp(-(((i11 - 275) / 25) ** 2))) * 0.01745329) * // `Math.PI / 180`
-				(2 * Math.sqrt(i15 / (i15 + 6103515625))) * // `25 ** 7
+			-Math.sin(2 * (30 * Math.exp(-(((i11 - 275) / 25) ** 2))) * c2) *
+				(2 * Math.sqrt(i15 / (i15 + c1))) *
 				i12 *
 				i14
 	);

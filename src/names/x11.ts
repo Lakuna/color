@@ -6,7 +6,10 @@ import fromHex from "../convert/hexToRgb.js";
  * @see {@link https://people.csail.mit.edu/jaffer/Color/Dictionaries#x11 | Color-Name Dictionaries}
  * @public
  */
-const x11: Map<string, Rgb> = new Map<string, Rgb>([
+const x11: Map<string, Rgb & [number, number, number]> = new Map<
+	string,
+	Rgb & [number, number, number]
+>([
 	["dodger blue 4", fromHex(0x104e8b)],
 	["sky blue 4", fromHex(0x4a708b)],
 	["steel blue 4", fromHex(0x36648b)],

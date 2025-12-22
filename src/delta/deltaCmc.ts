@@ -1,6 +1,9 @@
 import type Lab from "../types/Lab.js";
 import type Lchab from "../types/Lchab.js";
 
+const c0 = 180 / Math.PI;
+const c1 = Math.PI / 180;
+
 /**
  * Calculates the ΔCMC between two CIELAB values. Based on the EasyRGB pseudocode.
  * @param color0 - The first color.
@@ -38,7 +41,7 @@ export default function deltaCmc(
 			b0 < 0 ?
 				270
 			:	90
-		:	Math.atan(b0 / a0) * 57.29577951 + // `180 / Math.PI`
+		:	Math.atan(b0 / a0) * c0 +
 			(a0 > 0 ?
 				b0 > 0 ?
 					0
@@ -54,8 +57,8 @@ export default function deltaCmc(
 		Math.sqrt((a1 - a0) ** 2 + (b1 - b0) ** 2 - i5 ** 2) /
 			((i2 *
 				(i3 < 164 || i3 > 345 ?
-					0.36 + Math.abs(0.4 * Math.cos((35 + i3) * 0.01745329)) // `Math.PI / 180`
-				:	0.56 + Math.abs(0.2 * Math.cos((168 + i3) * 0.01745329))) + // `Math.PI / 180`
+					0.36 + Math.abs(0.4 * Math.cos((35 + i3) * c1))
+				:	0.56 + Math.abs(0.2 * Math.cos((168 + i3) * c1))) +
 				1 -
 				i2) *
 				i4)

@@ -3,6 +3,8 @@ import StandardIlluminant from "../utility/StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
 import getReference from "../utility/getReference.js";
 
+const c0 = 16 / 116;
+
 /**
  * Convert the given CIELUV color to a CIEXYZ color. Based on the EasyRGB pseudo-code.
  * @param color - The CIELUV color.
@@ -13,7 +15,7 @@ import getReference from "../utility/getReference.js";
 export default function luvToXyz(
 	color: Luv,
 	ref: Xyz = getReference(StandardIlluminant.D65_2)
-): Xyz {
+): Xyz & [number, number, number] {
 	// eslint-disable-next-line prefer-destructuring
 	const l = color[0];
 	// eslint-disable-next-line prefer-destructuring
@@ -27,7 +29,7 @@ export default function luvToXyz(
 	const i3 = rx + 15 * ry + 3 * ref[2];
 	const i4 = color[1] / i2 + (4 * rx) / i3;
 	const i5 = color[2] / i2 + (9 * ry) / i3;
-	const y = (i1 > 0.008856 ? i1 : (i0 - 0.13793103) / 7.787) * 100; // `16 / 166`
+	const y = (i1 > 0.008856 ? i1 : (i0 - c0) / 7.787) * 100; // `16 / 166`
 	const i6 = 9 * y;
 	const x = -(i6 * i4) / ((i4 - 4) * i5 - i4 * i5);
 

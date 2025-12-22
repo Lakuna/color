@@ -15,6 +15,7 @@ import {
 	luvToXyz,
 	rgbToCmy,
 	rgbToHex,
+	rgbToHsi,
 	rgbToHsl,
 	rgbToHsv,
 	rgbToXyz,
@@ -29,22 +30,22 @@ import {
 import { describe, it } from "node:test";
 import { equal, ok } from "node:assert/strict";
 
-const hex = 0x50c878;
-const rgb = [0x50, 0xc8, 0x78];
+const hex = 0x50c878; // Base
+const rgb = [0x50, 0xc8, 0x78]; // Base
 const adobe = [128.594, 198.675, 123.736];
 const hsl = [0.38889, 0.52174, 0.54902];
 const hsv = [0.38889, 0.6, 0.78431];
-// `const hsi = [0.38889, 0.4, 0.52288];` // TODO
+const hsi = [0.38889, 0.4, 0.52288];
 const cmy = [0.68627, 0.21569, 0.52941];
 const cmyk = [0.6, 0, 0.4, 0.21569];
-const xyz = [27.351, 44.367, 24.888];
-const yxy = [44.367, 0.28311, 0.45926];
-const lab = [72.473, -51.25, 30.255];
-const lchab = [72.473, 59.515, 149.445];
-const luv = [72.473, -52.102, 48.912];
+const xyz = [27.351, 44.367, 24.888]; // ColorHexa: `[27.351, 44.368, 24.891]`.
+const yxy = [44.367, 0.28311, 0.45926]; // ColorHexa: `[44.368, 0.283, 0.459]`.
+const lab = [72.473, -51.25, 30.255]; // ColorHexa: `[72.474, -51.25, 30.251]`.
+const lchab = [72.473, 59.515, 149.445]; // ColorHexa: `[72.474, 59.512, 149.448]`.
+const luv = [72.473, -52.102, 48.912]; // ColorHexa: `[72.474, -52.103, 48.908]`.
 const lchuv = [72.473, 71.464, 136.809];
-const hunter = [66.609, -40.344, 21.649];
-const hunterC = [66.609, -43.271, 24.471];
+const hunter = [66.609, -40.344, 21.649]; // EasyRGB
+const hunterC = [66.609, -43.271, 24.471]; // ColorHexa
 
 const approximatelyEqual = (actual, expected, delta) => {
 	ok(Math.abs(actual - expected) < delta);
@@ -146,6 +147,12 @@ void describe("rgbToCmy", () => {
 void describe("rgbToHex", () => {
 	void it("should return `rgbToHex(rgb) = hex`", () => {
 		equal(rgbToHex(rgb), hex);
+	});
+});
+
+void describe("rgbToHsi", () => {
+	void it("should return `rgbToHsi(rgb) = hsi`", () => {
+		approximatelyEqualArray(rgbToHsi(rgb), hsi, 0.0001);
 	});
 });
 
