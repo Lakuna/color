@@ -7,11 +7,14 @@ import type { Color } from "./Color.js";
  */
 export default interface Hsv extends Color {
 	/** The hue channel of this color in the range `[0,1]`. Multiply this value by 360 to get the hue angle in degrees. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	0: number;
 
 	/** The saturation channel of this color in the range `[0,1]`. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	1: number;
 
 	/** The value (brightness) channel of this color in the range `[0,1]`. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	2: number;
 }

@@ -33,12 +33,11 @@ const hueToRgb = (v0: number, v1: number, h: number): number => {
  * @returns An sRGB color.
  * @public
  */
-export default function hslToRgb(color: Hsl): Rgb & [number, number, number] {
-	// eslint-disable-next-line prefer-destructuring
+export default function hslToRgb(color: Hsl): [number, number, number] & Rgb {
 	const h = color[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const s = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const l = color[2];
 
 	const i0 = l * 0xff;

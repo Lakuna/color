@@ -15,8 +15,7 @@ const d = 360;
 export default function splitComplement(
 	color: Hsi,
 	subdivisions?: number
-): [Hsi & [number, number, number], Hsi & [number, number, number]];
-
+): [[number, number, number] & Hsi, [number, number, number] & Hsi];
 /**
  * Determine the split complementary colors of the given color.
  * @param color - The color to find the split complements of in HSL.
@@ -27,8 +26,7 @@ export default function splitComplement(
 export default function splitComplement(
 	color: Hsl,
 	subdivisions?: number
-): [Hsl & [number, number, number], Hsl & [number, number, number]];
-
+): [[number, number, number] & Hsl, [number, number, number] & Hsl];
 /**
  * Determine the split complementary colors of the given color.
  * @param color - The color to find the split complements of in HSV.
@@ -39,18 +37,16 @@ export default function splitComplement(
 export default function splitComplement(
 	color: Hsv,
 	subdivisions?: number
-): [Hsv & [number, number, number], Hsv & [number, number, number]];
-
+): [[number, number, number] & Hsv, [number, number, number] & Hsv];
 export default function splitComplement(
 	color: Hsi | Hsl | Hsv,
 	subdivisions = 12
 ):
-	| [Hsi & [number, number, number], Hsi & [number, number, number]]
-	| [Hsl & [number, number, number], Hsl & [number, number, number]]
-	| [Hsv & [number, number, number], Hsv & [number, number, number]] {
-	// eslint-disable-next-line prefer-destructuring
+	| [[number, number, number] & Hsi, [number, number, number] & Hsi]
+	| [[number, number, number] & Hsl, [number, number, number] & Hsl]
+	| [[number, number, number] & Hsv, [number, number, number] & Hsv] {
 	const s = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const x = color[2];
 
 	const deltaAngle = d / subdivisions;

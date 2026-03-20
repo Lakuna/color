@@ -14,8 +14,7 @@ const d = 360;
 export default function complementLch(
 	color: Lchab,
 	n?: number
-): (Lchab & [number, number, number])[];
-
+): ([number, number, number] & Lchab)[];
 /**
  * Determine the complementary color(s) of the given color.
  * @param color - The color to find the complement(s) of in CIE-L\*Ch(uv).
@@ -26,24 +25,22 @@ export default function complementLch(
 export default function complementLch(
 	color: Lchuv,
 	n?: number
-): (Lchuv & [number, number, number])[];
-
+): ([number, number, number] & Lchuv)[];
 export default function complementLch(
 	color: Lchab | Lchuv,
 	n = 1
-): (Lchab & [number, number, number])[] | (Lchuv & [number, number, number])[] {
-	// eslint-disable-next-line prefer-destructuring
+): ([number, number, number] & Lchab)[] | ([number, number, number] & Lchuv)[] {
 	const l = color[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const c = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const h = color[2];
 
 	const deltaAngle = d / (n + 1);
 
 	const out:
-		| (Lchab & [number, number, number])[]
-		| (Lchuv & [number, number, number])[] = [];
+		| ([number, number, number] & Lchab)[]
+		| ([number, number, number] & Lchuv)[] = [];
 	for (let i = 1; i <= n; i++) {
 		const angle = h + deltaAngle * i;
 		out.push([l, c, (angle > d ? angle - d : angle) / d]);

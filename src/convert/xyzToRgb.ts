@@ -13,7 +13,7 @@ const c4 = 12.92;
  * @returns An sRGB color.
  * @public
  */
-export default function xyzToRgb(color: Xyz): Rgb & [number, number, number] {
+export default function xyzToRgb(color: Xyz): [number, number, number] & Rgb {
 	const i0 = color[0] / 100;
 	const i1 = color[1] / 100;
 	const i2 = color[2] / 100;

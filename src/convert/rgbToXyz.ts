@@ -14,7 +14,7 @@ const c5 = 100;
  * @returns A CIEXYZ color.
  * @public
  */
-export default function rgbToXyz(color: Rgb): Xyz & [number, number, number] {
+export default function rgbToXyz(color: Rgb): [number, number, number] & Xyz {
 	const i0 = color[0] / 0xff;
 	const i1 = color[1] / 0xff;
 	const i2 = color[2] / 0xff;

@@ -14,8 +14,7 @@ const d = 360;
 export default function analogousLch(
 	color: Lchab,
 	subdivisions?: number
-): [Lchab & [number, number, number], Lchab & [number, number, number]];
-
+): [[number, number, number] & Lchab, [number, number, number] & Lchab];
 /**
  * Determine the analogous colors of the given color.
  * @param color - The color to find the analogues of in CIE-L\*Ch(uv).
@@ -26,19 +25,17 @@ export default function analogousLch(
 export default function analogousLch(
 	color: Lchuv,
 	subdivisions?: number
-): [Lchuv & [number, number, number], Lchuv & [number, number, number]];
-
+): [[number, number, number] & Lchuv, [number, number, number] & Lchuv];
 export default function analogousLch(
 	color: Lchab | Lchuv,
 	subdivisions = 12
 ):
-	| [Lchab & [number, number, number], Lchab & [number, number, number]]
-	| [Lchuv & [number, number, number], Lchuv & [number, number, number]] {
-	// eslint-disable-next-line prefer-destructuring
+	| [[number, number, number] & Lchab, [number, number, number] & Lchab]
+	| [[number, number, number] & Lchuv, [number, number, number] & Lchuv] {
 	const l = color[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const c = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const h = color[2];
 
 	const deltaAngle = d / subdivisions;

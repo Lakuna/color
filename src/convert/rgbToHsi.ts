@@ -10,7 +10,7 @@ const c1 = 2 / 3;
  * @returns An HSI color.
  * @public
  */
-export default function rgbToHsi(color: Rgb): Hsi & [number, number, number] {
+export default function rgbToHsi(color: Rgb): [number, number, number] & Hsi {
 	const i0 = color[0] / 0xff;
 	const i1 = color[1] / 0xff;
 	const i2 = color[2] / 0xff;

@@ -9,12 +9,11 @@ import type Cmyk from "../types/Cmyk.js";
  */
 export default function cmyToCmyk(
 	color: Cmy
-): Cmyk & [number, number, number, number] {
-	// eslint-disable-next-line prefer-destructuring
+): [number, number, number, number] & Cmyk {
 	const c = color[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const m = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const y = color[2];
 
 	const k = Math.min(c, m, y, 1);

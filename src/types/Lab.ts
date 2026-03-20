@@ -7,11 +7,14 @@ import type { Color } from "./Color.js";
  */
 export default interface Lab extends Color {
 	/** The L* (luminance or perceptual brightness) value of this color in the range `[0,100]`. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	0: number;
 
 	/** The a* value of this color. Forms a Cartesian coordinate pair with b* to represent the four unique colors of human vision (red, green, blue, and yellow). */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	1: number;
 
 	/** The b* value of this color. Forms a Cartesian coordinate pair with a* to represent the four unique colors of human vision (red, green, blue, and yellow). */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	2: number;
 }

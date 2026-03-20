@@ -7,11 +7,14 @@ import type { Color } from "./Color.js";
  */
 export default interface Hunter extends Color {
 	/** The L (lightness) value of this color in the range `[0,100]` (lighter values are whiter). */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	0: number;
 
 	/** The a opponent color axis value of this color. The positive direction represents redness, while the negative direction represents greenness. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	1: number;
 
 	/** The b opponent color axis value of this color. The positive direction represents yellowness, while the negative direction represents blueness. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	2: number;
 }

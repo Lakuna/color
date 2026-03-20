@@ -1,7 +1,8 @@
 import type Lab from "../types/Lab.js";
-import StandardIlluminant from "../utility/StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
+
 import getReference from "../utility/getReference.js";
+import StandardIlluminant from "../utility/StandardIlluminant.js";
 
 const c0 = 1 / 3;
 const c1 = 16 / 116;
@@ -18,7 +19,7 @@ const c3 = 7.787;
 export default function xyzToLab(
 	color: Xyz,
 	ref: Xyz = getReference(StandardIlluminant.D65_2)
-): Lab & [number, number, number] {
+): [number, number, number] & Lab {
 	const i0 = color[0] / ref[0];
 	const i1 = color[1] / ref[1];
 	const i2 = color[2] / ref[2];

@@ -6,6 +6,6 @@ import type Rgb from "../types/Rgb.js";
  * @returns An sRGB color.
  * @public
  */
-export default function hexToRgb(hex: number): Rgb & [number, number, number] {
+export default function hexToRgb(hex: number): [number, number, number] & Rgb {
 	return [(hex >> 16) & 0xff, (hex >> 8) & 0xff, hex & 0xff];
 }

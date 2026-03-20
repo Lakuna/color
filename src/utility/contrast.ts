@@ -1,4 +1,5 @@
 import type Rgb from "../types/Rgb.js";
+
 import relativeLuminance from "./relativeLuminance.js";
 
 /**

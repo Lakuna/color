@@ -7,12 +7,11 @@ import type Yxy from "../types/Yxy.js";
  * @returns The CIEXYZ color in yxy format.
  * @public
  */
-export default function xyzToYxy(color: Xyz): Yxy & [number, number, number] {
-	// eslint-disable-next-line prefer-destructuring
+export default function xyzToYxy(color: Xyz): [number, number, number] & Yxy {
 	const X = color[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const Y = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const Z = color[2];
 
 	return [Y, X / (X + Y + Z), Y / (X + Y + Z)];

@@ -10,7 +10,6 @@ import type Luv from "../types/Luv.js";
  * @public
  */
 export default function deltaH(color0: Lab, color1: Lab): number;
-
 /**
  * Calculates the ΔH* between two CIELUV values. Based on the EasyRGB pseudocode.
  * @param color0 - The first color.
@@ -20,15 +19,13 @@ export default function deltaH(color0: Lab, color1: Lab): number;
  * @public
  */
 export default function deltaH(color0: Luv, color1: Luv): number;
-
 export default function deltaH(color0: Lab | Luv, color1: Lab | Luv): number {
-	// eslint-disable-next-line prefer-destructuring
 	const a0 = color0[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const b0 = color0[2];
-	// eslint-disable-next-line prefer-destructuring
+
 	const a1 = color1[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const b1 = color1[2];
 
 	return Math.sqrt(

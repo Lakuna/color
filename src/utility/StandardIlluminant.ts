@@ -5,124 +5,124 @@
  */
 enum StandardIlluminant {
 	/** The CIE A standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent average incandescent/tungsten light. */
-	A_2,
+	A_2 = 0,
 
 	/** The CIE A standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent average incandescent/tungsten light. */
-	A_10,
+	A_10 = 1,
 
 	/** The CIE B standard illuminant with the standard (CIE 1931; 2°) observer. Formerly used to represent average direct sunlight at noon. */
-	B_2,
+	B_2 = 2,
 
 	/** The CIE B standard illuminant with the supplementary (CIE 1964; 10°) observer. Formerly used to represent average direct sunlight at noon. */
-	B_10,
+	B_10 = 3,
 
 	/** The CIE C standard illuminant with the standard (CIE 1931; 2°) observer. Formerly used to represent average daylight. */
-	C_2,
+	C_2 = 4,
 
 	/** The CIE C standard illuminant with the supplementary (CIE 1964; 10°) observer. Formerly used to represent average daylight. */
-	C_10,
+	C_10 = 5,
 
 	/** The CIE D50 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent ICC profile PCS. Typically used in the printing industry. */
-	D50_2,
+	D50_2 = 6,
 
 	/** The CIE D50 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent ICC profile PCS. Typically used in the printing industry. */
-	D50_10,
+	D50_10 = 7,
 
 	/** The CIE D55 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent mid-morning daylight. */
-	D55_2,
+	D55_2 = 8,
 
 	/** The CIE D55 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent mid-morning daylight. */
-	D55_10,
+	D55_10 = 9,
 
 	/** The CIE D65 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent daylight. The CIE standard, and the standard for nearly all display colorspaces and working spaces including sRGB and Adobe RGB. */
-	D65_2,
+	D65_2 = 10,
 
 	/** The CIE D65 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent daylight. The CIE standard, and the standard for nearly all display colorspaces and working spaces including sRGB and Adobe RGB. */
-	D65_10,
+	D65_10 = 11,
 
 	/** The CIE D75 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent North sky daylight. */
-	D75_2,
+	D75_2 = 12,
 
 	/** The CIE D75 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent North sky daylight. */
-	D75_10,
+	D75_10 = 13,
 
 	/** The CIE E standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent equal energy lighting. */
-	E_2,
+	E_2 = 14,
 
 	/** The CIE E standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent equal energy lighting. */
-	E_10,
+	E_10 = 15,
 
 	/** The CIE F1 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent daylight flourescent lamps. */
-	F1_2,
+	F1_2 = 16,
 
 	/** The CIE F1 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent daylight flourescent lamps. */
-	F1_10,
+	F1_10 = 17,
 
 	/** The CIE F2 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent cool flourescent lamps. */
-	F2_2,
+	F2_2 = 18,
 
 	/** The CIE F2 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent cool flourescent lamps. */
-	F2_10,
+	F2_10 = 19,
 
 	/** The CIE F3 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent white flourescent lamps. */
-	F3_2,
+	F3_2 = 20,
 
 	/** The CIE F3 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent white flourescent lamps. */
-	F3_10,
+	F3_10 = 21,
 
 	/** The CIE F4 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent warm white flourescent lamps. */
-	F4_2,
+	F4_2 = 22,
 
 	/** The CIE F4 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent warm white flourescent lamps. */
-	F4_10,
+	F4_10 = 23,
 
 	/** The CIE F5 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent daylight flourescent lamps. */
-	F5_2,
+	F5_2 = 24,
 
 	/** The CIE F5 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent daylight flourescent lamps. */
-	F5_10,
+	F5_10 = 25,
 
 	/** The CIE F6 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent lite white flourescent lamps. */
-	F6_2,
+	F6_2 = 26,
 
 	/** The CIE F6 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent lite white flourescent lamps. */
-	F6_10,
+	F6_10 = 27,
 
 	/** The CIE F7 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent daylight flourescent lamps (D65 simulator). */
-	F7_2,
+	F7_2 = 28,
 
 	/** The CIE F7 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent daylight flourescent lamps (D65 simulator). */
-	F7_10,
+	F7_10 = 29,
 
 	/** The CIE F8 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent Sylvania F40 flourescent lamps (D50 simulator). */
-	F8_2,
+	F8_2 = 30,
 
 	/** The CIE F8 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent Sylvania F40 flourescent lamps (D50 simulator). */
-	F8_10,
+	F8_10 = 31,
 
 	/** The CIE F9 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent cool white flourescent lamps. */
-	F9_2,
+	F9_2 = 32,
 
 	/** The CIE F9 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent cool white flourescent lamps. */
-	F9_10,
+	F9_10 = 33,
 
 	/** The CIE F10 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent Ultralume 50 and Philips TL85 flourescent lamps. */
-	F10_2,
+	F10_2 = 34,
 
 	/** The CIE F10 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent Ultralume 50 and Philips TL85 flourescent lamps. */
-	F10_10,
+	F10_10 = 35,
 
 	/** The CIE F11 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent Ultralume 40 and Philips TL84 flourescent lamps. */
-	F11_2,
+	F11_2 = 36,
 
 	/** The CIE F11 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent Ultralume 40 and Philips TL84 flourescent lamps. */
-	F11_10,
+	F11_10 = 37,
 
 	/** The CIE F12 standard illuminant with the standard (CIE 1931; 2°) observer. Used to represent Ultralume 30 and Philips TL83 flourescent lamps. */
-	F12_2,
+	F12_2 = 38,
 
 	/** The CIE F12 standard illuminant with the supplementary (CIE 1964; 10°) observer. Used to represent Ultralume 30 and Philips TL83 flourescent lamps. */
-	F12_10
+	F12_10 = 39
 }
 
 export default StandardIlluminant;

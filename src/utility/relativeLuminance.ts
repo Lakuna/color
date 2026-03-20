@@ -6,7 +6,7 @@ import type Rgb from "../types/Rgb.js";
  * @returns The piecewise value.
  * @internal
  */
-const piecewise = (a: number) =>
+const piecewise = (a: number): number =>
 	a > 0.04045 ? ((a + 0.055) / 1.055) ** 2.4 : a / 12.92;
 
 /**

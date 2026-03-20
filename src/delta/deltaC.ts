@@ -10,7 +10,6 @@ import type Luv from "../types/Luv.js";
  * @public
  */
 export default function deltaC(color0: Lab, color1: Lab): number;
-
 /**
  * Calculates the ΔC* between two CIELUV values. Based on the EasyRGB pseudocode.
  * @param color0 - The first color.
@@ -20,7 +19,6 @@ export default function deltaC(color0: Lab, color1: Lab): number;
  * @public
  */
 export default function deltaC(color0: Luv, color1: Luv): number;
-
 export default function deltaC(color0: Lab | Luv, color1: Lab | Luv): number {
 	return Math.hypot(color1[1], color1[2]) - Math.hypot(color0[1], color0[2]);
 }

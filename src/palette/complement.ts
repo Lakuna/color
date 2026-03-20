@@ -15,8 +15,7 @@ const d = 360;
 export default function complement(
 	color: Hsi,
 	n?: number
-): (Hsi & [number, number, number])[];
-
+): ([number, number, number] & Hsi)[];
 /**
  * Determine the complementary color(s) of the given color.
  * @param color - The color to find the complement(s) of in HSL.
@@ -27,8 +26,7 @@ export default function complement(
 export default function complement(
 	color: Hsl,
 	n?: number
-): (Hsl & [number, number, number])[];
-
+): ([number, number, number] & Hsl)[];
 /**
  * Determine the complementary color(s) of the given color.
  * @param color - The color to find the complement(s) of in HSV.
@@ -39,27 +37,25 @@ export default function complement(
 export default function complement(
 	color: Hsv,
 	n?: number
-): (Hsv & [number, number, number])[];
-
+): ([number, number, number] & Hsv)[];
 export default function complement(
 	color: Hsi | Hsl | Hsv,
 	n = 1
 ):
-	| (Hsi & [number, number, number])[]
-	| (Hsl & [number, number, number])[]
-	| (Hsv & [number, number, number])[] {
-	// eslint-disable-next-line prefer-destructuring
+	| ([number, number, number] & Hsi)[]
+	| ([number, number, number] & Hsl)[]
+	| ([number, number, number] & Hsv)[] {
 	const s = color[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const x = color[2];
 
 	const hueAngle = color[0] * d;
 	const deltaAngle = d / (n + 1);
 
 	const out:
-		| (Hsi & [number, number, number])[]
-		| (Hsl & [number, number, number])[]
-		| (Hsv & [number, number, number])[] = [];
+		| ([number, number, number] & Hsi)[]
+		| ([number, number, number] & Hsl)[]
+		| ([number, number, number] & Hsv)[] = [];
 	for (let i = 1; i <= n; i++) {
 		const angle = hueAngle + deltaAngle * i;
 		out.push([(angle > d ? angle - d : angle) / d, s, x]);

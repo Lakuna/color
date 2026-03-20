@@ -42,17 +42,16 @@ export default function deltaE00(
 	color1: Lab,
 	weight: Lchab = [1, 1, 1]
 ): number {
-	// eslint-disable-next-line prefer-destructuring
 	const l0 = color0[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const a0 = color0[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const b0 = color0[2];
-	// eslint-disable-next-line prefer-destructuring
+
 	const l1 = color1[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const a1 = color1[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const b1 = color1[2];
 
 	const i0 = ((Math.hypot(a0, b0) + Math.hypot(a1, b1)) / 2) ** 7;

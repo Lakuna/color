@@ -7,11 +7,14 @@ import type { Color } from "./Color.js";
  */
 export default interface Luv extends Color {
 	/** The L* (perceptual brightness) value of this color in the range `[0,100]`. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	0: number;
 
 	/** The u* value of this color. Forms a Cartesian coordinate pair with v* to represent the four unique colors of human vision (red, green, blue, and yellow). */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	1: number;
 
 	/** The v* value of this color. Forms a Cartesian coordinate pair with u* to represent the four unique colors of human vision (red, green, blue, and yellow). */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	2: number;
 }

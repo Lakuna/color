@@ -1,7 +1,8 @@
 import type Hunter from "../types/Hunter.js";
-import StandardIlluminant from "../utility/StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
+
 import getReference from "../utility/getReference.js";
+import StandardIlluminant from "../utility/StandardIlluminant.js";
 
 const c0 = 175 / 198.04;
 const c1 = 70 / 218.11;
@@ -16,12 +17,11 @@ const c1 = 70 / 218.11;
 export default function hunterToXyz(
 	color: Hunter,
 	ref: Xyz = getReference(StandardIlluminant.D65_2)
-): Xyz & [number, number, number] {
-	// eslint-disable-next-line prefer-destructuring
+): [number, number, number] & Xyz {
 	const rx = ref[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const ry = ref[1];
-	// eslint-disable-next-line prefer-destructuring
+
 	const rz = ref[2];
 
 	const y = (color[0] / ry) ** 2 * 100;

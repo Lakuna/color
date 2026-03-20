@@ -1,7 +1,8 @@
 import type Luv from "../types/Luv.js";
-import StandardIlluminant from "../utility/StandardIlluminant.js";
 import type Xyz from "../types/Xyz.js";
+
 import getReference from "../utility/getReference.js";
+import StandardIlluminant from "../utility/StandardIlluminant.js";
 
 const c0 = 16 / 116;
 
@@ -15,12 +16,11 @@ const c0 = 16 / 116;
 export default function luvToXyz(
 	color: Luv,
 	ref: Xyz = getReference(StandardIlluminant.D65_2)
-): Xyz & [number, number, number] {
-	// eslint-disable-next-line prefer-destructuring
+): [number, number, number] & Xyz {
 	const l = color[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const rx = ref[0];
-	// eslint-disable-next-line prefer-destructuring
+
 	const ry = ref[1];
 
 	const i0 = (l + 16) / 116;

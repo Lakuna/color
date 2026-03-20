@@ -7,11 +7,14 @@ import type { Color } from "./Color.js";
  */
 export default interface Yxy extends Color {
 	/** The Y value of this color in the range `[0,100]`. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	0: number;
 
 	/** The x value of this color. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	1: number;
 
 	/** The y value of this color. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	2: number;
 }

@@ -7,11 +7,14 @@ import type { Color } from "./Color.js";
  */
 export default interface Xyz extends Color {
 	/** The X value of this color. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	0: number;
 
 	/** The Y value of this color. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	1: number;
 
 	/** The Z value of this color. */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	2: number;
 }
