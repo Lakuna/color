@@ -33,7 +33,9 @@ const hueToRgb = (v0: number, v1: number, h: number): number => {
  * @returns An sRGB color.
  * @public
  */
-export default function hslToRgb(color: Hsl): [number, number, number] & Rgb {
+export default function hslToRgb(
+	color: Readonly<Hsl>
+): [number, number, number] & Rgb {
 	const h = color[0];
 
 	const s = color[1];

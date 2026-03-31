@@ -10,7 +10,9 @@ const c1 = 2 / 3;
  * @returns An HSL color.
  * @public
  */
-export default function rgbToHsl(color: Rgb): [number, number, number] & Hsl {
+export default function rgbToHsl(
+	color: Readonly<Rgb>
+): [number, number, number] & Hsl {
 	const i0 = color[0] / 0xff;
 	const i1 = color[1] / 0xff;
 	const i2 = color[2] / 0xff;

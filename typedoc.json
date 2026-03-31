@@ -1,0 +1,13 @@
+{
+	"$schema": "https://typedoc.org/schema.json",
+	"externalSymbolLinkMappings": {
+		"typescript": {
+			"Map": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+			"Readonly": "https://www.typescriptlang.org/docs/handbook/utility-types.html#readonlytype",
+			"Record": "https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type"
+		}
+	},
+	"hostedBaseUrl": "https://color.lakuna.pw/",
+	"name": "Color",
+	"navigationLinks": { "GitHub": "https://github.com/Lakuna/color" }
+}

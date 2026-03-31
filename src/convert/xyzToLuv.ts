@@ -15,8 +15,8 @@ const c1 = 16 / 116;
  * @public
  */
 export default function xyzToLuv(
-	color: Xyz,
-	ref: Xyz = getReference(StandardIlluminant.D65_2)
+	color: Readonly<Xyz>,
+	ref: Readonly<Xyz> = getReference(StandardIlluminant.D65_2)
 ): [number, number, number] & Luv {
 	const x = color[0];
 

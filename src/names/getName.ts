@@ -17,7 +17,7 @@ import ntc from "./ntc.js";
  */
 export default function getName<T extends Color>(
 	color: T,
-	names: Map<string, T>,
+	names: Readonly<Map<string, T>>,
 	diff: (a: T, b: T) => number
 ): string {
 	let [nearestName] = names.entries().next().value ?? [];
@@ -49,8 +49,8 @@ export default function getName<T extends Color>(
  * @public
  */
 export const getNameStandard = (
-	color: Rgb,
-	names: Map<string, Rgb> = ntc
+	color: Readonly<Rgb>,
+	names: Readonly<Map<string, Rgb>> = ntc
 ): string =>
 	getName(color, names, (a, b) =>
 		deltaE00(xyzToLab(rgbToXyz(a)), xyzToLab(rgbToXyz(b)))

@@ -13,7 +13,7 @@ const d = 360;
  * @public
  */
 export default function analogous(
-	color: Hsi,
+	color: Readonly<Hsi>,
 	subdivisions?: number
 ): [[number, number, number] & Hsi, [number, number, number] & Hsi];
 /**
@@ -24,7 +24,7 @@ export default function analogous(
  * @public
  */
 export default function analogous(
-	color: Hsl,
+	color: Readonly<Hsl>,
 	subdivisions?: number
 ): [[number, number, number] & Hsl, [number, number, number] & Hsl];
 /**
@@ -35,11 +35,11 @@ export default function analogous(
  * @public
  */
 export default function analogous(
-	color: Hsv,
+	color: Readonly<Hsv>,
 	subdivisions?: number
 ): [[number, number, number] & Hsv, [number, number, number] & Hsv];
 export default function analogous(
-	color: Hsi | Hsl | Hsv,
+	color: Readonly<Hsi | Hsl | Hsv>,
 	subdivisions = 12
 ):
 	| [[number, number, number] & Hsi, [number, number, number] & Hsi]

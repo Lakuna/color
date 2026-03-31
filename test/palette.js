@@ -1,3 +1,5 @@
+import { describe, it } from "node:test";
+
 import {
 	analogous,
 	complement,
@@ -7,14 +9,9 @@ import {
 	rgbToHsl,
 	splitComplement
 } from "../dist/index.js";
-import { describe, it } from "node:test";
-import { ok } from "node:assert/strict";
+import { approximatelyEqual } from "./shared.js";
 
 const emerald = rgbToHsl(hexToRgb(0x50c878));
-
-const approximatelyEqual = (actual, expected, delta) => {
-	ok(Math.abs(actual - expected) < delta);
-};
 
 void describe("analogous", () => {
 	void it("should return `analogous(emerald) = [0x64c850, 0x50c8b4]`", () => {

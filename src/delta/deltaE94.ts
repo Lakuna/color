@@ -11,9 +11,9 @@ import type Lchab from "../types/Lchab.js";
  * @public
  */
 export default function deltaE94(
-	color0: Lab,
-	color1: Lab,
-	weight: Lchab = [1, 1, 1]
+	color0: Readonly<Lab>,
+	color1: Readonly<Lab>,
+	weight: Readonly<Lchab> = [1, 1, 1]
 ): number {
 	const l0 = color0[0];
 

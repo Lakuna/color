@@ -9,7 +9,10 @@ import type Luv from "../types/Luv.js";
  * @see {@link https://en.wikipedia.org/wiki/Color_difference | Color difference}
  * @public
  */
-export default function deltaE76(color0: Lab, color1: Lab): number;
+export default function deltaE76(
+	color0: Readonly<Lab>,
+	color1: Readonly<Lab>
+): number;
 /**
  * Calculates the ΔE* CIE (CIE 1976) between two CIELUV values. Based on the EasyRGB pseudocode.
  * @param color0 - The first color.
@@ -18,8 +21,14 @@ export default function deltaE76(color0: Lab, color1: Lab): number;
  * @see {@link https://en.wikipedia.org/wiki/Color_difference | Color difference}
  * @public
  */
-export default function deltaE76(color0: Luv, color1: Luv): number;
-export default function deltaE76(color0: Lab | Luv, color1: Lab | Luv): number {
+export default function deltaE76(
+	color0: Readonly<Luv>,
+	color1: Readonly<Luv>
+): number;
+export default function deltaE76(
+	color0: Readonly<Lab | Luv>,
+	color1: Readonly<Lab | Luv>
+): number {
 	return Math.hypot(
 		color0[0] - color1[0],
 		color0[1] - color1[1],

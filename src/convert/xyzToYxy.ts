@@ -7,7 +7,9 @@ import type Yxy from "../types/Yxy.js";
  * @returns The CIEXYZ color in yxy format.
  * @public
  */
-export default function xyzToYxy(color: Xyz): [number, number, number] & Yxy {
+export default function xyzToYxy(
+	color: Readonly<Xyz>
+): [number, number, number] & Yxy {
 	const X = color[0];
 
 	const Y = color[1];

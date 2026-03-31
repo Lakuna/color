@@ -13,7 +13,7 @@ const d = 360;
  * @public
  */
 export default function complement(
-	color: Hsi,
+	color: Readonly<Hsi>,
 	n?: number
 ): ([number, number, number] & Hsi)[];
 /**
@@ -24,7 +24,7 @@ export default function complement(
  * @public
  */
 export default function complement(
-	color: Hsl,
+	color: Readonly<Hsl>,
 	n?: number
 ): ([number, number, number] & Hsl)[];
 /**
@@ -35,11 +35,11 @@ export default function complement(
  * @public
  */
 export default function complement(
-	color: Hsv,
+	color: Readonly<Hsv>,
 	n?: number
 ): ([number, number, number] & Hsv)[];
 export default function complement(
-	color: Hsi | Hsl | Hsv,
+	color: Readonly<Hsi | Hsl | Hsv>,
 	n = 1
 ):
 	| ([number, number, number] & Hsi)[]

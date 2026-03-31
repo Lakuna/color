@@ -12,7 +12,7 @@ const d = 360;
  * @public
  */
 export default function complementLch(
-	color: Lchab,
+	color: Readonly<Lchab>,
 	n?: number
 ): ([number, number, number] & Lchab)[];
 /**
@@ -23,11 +23,11 @@ export default function complementLch(
  * @public
  */
 export default function complementLch(
-	color: Lchuv,
+	color: Readonly<Lchuv>,
 	n?: number
 ): ([number, number, number] & Lchuv)[];
 export default function complementLch(
-	color: Lchab | Lchuv,
+	color: Readonly<Lchab | Lchuv>,
 	n = 1
 ): ([number, number, number] & Lchab)[] | ([number, number, number] & Lchuv)[] {
 	const l = color[0];

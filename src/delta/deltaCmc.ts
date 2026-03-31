@@ -14,9 +14,9 @@ const c1 = Math.PI / 180;
  * @public
  */
 export default function deltaCmc(
-	color0: Lab,
-	color1: Lab,
-	weight: Lchab = [1, 1, 1]
+	color0: Readonly<Lab>,
+	color1: Readonly<Lab>,
+	weight: Readonly<Lchab> = [1, 1, 1]
 ): number {
 	const l0 = color0[0];
 

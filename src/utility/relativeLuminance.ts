@@ -16,7 +16,7 @@ const piecewise = (a: number): number =>
  * @see {@link https://www.w3.org/WAI/GL/wiki/Relative_luminance | Relative luminance}
  * @public
  */
-export default function relativeLuminance(color: Rgb): number {
+export default function relativeLuminance(color: Readonly<Rgb>): number {
 	return (
 		0.2126 * piecewise(color[0] / 0xff) +
 		0.7152 * piecewise(color[1] / 0xff) +

@@ -6,7 +6,7 @@ import type Rgb from "../types/Rgb.js";
  * @returns The numerical hexadecimal representation of the color.
  * @public
  */
-export default function rgbToHex(rgb: Rgb): number {
+export default function rgbToHex(rgb: Readonly<Rgb>): number {
 	return (
 		Math.round(rgb[0] * 0x10000) +
 		Math.round(rgb[1] * 0x100) +

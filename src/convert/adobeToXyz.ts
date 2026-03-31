@@ -12,7 +12,7 @@ const f = 100 / 0xff ** gamma; // `(x / 0xff) ** gamma * 100)` is equivalent to 
  * @public
  */
 export default function adobeToXyz(
-	color: Adobe
+	color: Readonly<Adobe>
 ): [number, number, number] & Xyz {
 	const i0 = color[0] ** gamma * f;
 	const i1 = color[1] ** gamma * f;

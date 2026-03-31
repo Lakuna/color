@@ -1,9 +1,11 @@
+import { strictEqual } from "node:assert/strict";
+import { describe, it } from "node:test";
+
 import {
-	StandardIlluminant,
 	adobeToXyz,
+	cmykToCmy,
 	cmyToCmyk,
 	cmyToRgb,
-	cmykToCmy,
 	getReference,
 	hexToRgb,
 	hslToRgb,
@@ -19,6 +21,7 @@ import {
 	rgbToHsl,
 	rgbToHsv,
 	rgbToXyz,
+	StandardIlluminant,
 	xyzToAdobe,
 	xyzToHunter,
 	xyzToLab,
@@ -27,8 +30,7 @@ import {
 	xyzToYxy,
 	yxyToXyz
 } from "../dist/index.js";
-import { describe, it } from "node:test";
-import { equal, ok } from "node:assert/strict";
+import { approximatelyEqual, approximatelyEqualIterable } from "./shared.js";
 
 const hex = 0x50c878; // Base
 const rgb = [0x50, 0xc8, 0x78]; // Base
@@ -47,146 +49,135 @@ const lchuv = [72.473, 71.464, 136.809];
 const hunter = [66.609, -40.344, 21.649]; // EasyRGB
 const hunterC = [66.609, -43.271, 24.471]; // ColorHexa
 
-const approximatelyEqual = (actual, expected, delta) => {
-	ok(Math.abs(actual - expected) < delta);
-};
-
-const approximatelyEqualArray = (actual, expected, delta) => {
-	ok(Array.isArray(actual) && Array.isArray(expected));
-	for (let i = 0; i < actual.length; i++) {
-		approximatelyEqual(actual[i], expected[i], delta);
-	}
-};
-
 void describe("adobeToXyz", () => {
 	void it("should return `adobeToXyz(adobe) = xyz`", () => {
-		approximatelyEqualArray(adobeToXyz(adobe), xyz, 0.01);
+		approximatelyEqualIterable(adobeToXyz(adobe), xyz, 0.01);
 	});
 });
 
 void describe("cmykToCmy", () => {
 	void it("should return `cmykToCmy(cmyk) = cmy`", () => {
-		approximatelyEqualArray(cmykToCmy(cmyk), cmy, 0.0001);
+		approximatelyEqualIterable(cmykToCmy(cmyk), cmy, 0.0001);
 	});
 });
 
 void describe("cmyToCmyk", () => {
 	void it("should return `cmyToCmyk(cmy) = cmyk`", () => {
-		approximatelyEqualArray(cmyToCmyk(cmy), cmyk, 0.0001);
+		approximatelyEqualIterable(cmyToCmyk(cmy), cmyk, 0.0001);
 	});
 });
 
 void describe("cmyToRgb", () => {
 	void it("should return `cmyToRgb(cmy) = rgb`", () => {
-		approximatelyEqualArray(cmyToRgb(cmy), rgb, 1);
+		approximatelyEqualIterable(cmyToRgb(cmy), rgb, 1);
 	});
 });
 
 void describe("hexToRgb", () => {
 	void it("should return `hexToRgb(hex) = rgb`", () => {
-		approximatelyEqualArray(hexToRgb(hex), rgb, 1);
+		approximatelyEqualIterable(hexToRgb(hex), rgb, 1);
 	});
 });
 
 void describe("hslToRgb", () => {
 	void it("should return `hslToRgb(hsl) = rgb`", () => {
-		approximatelyEqualArray(hslToRgb(hsl), rgb, 1);
+		approximatelyEqualIterable(hslToRgb(hsl), rgb, 1);
 	});
 });
 
 void describe("hsvToRgb", () => {
 	void it("should return `hsvToRgb(hsv) = rgb`", () => {
-		approximatelyEqualArray(hsvToRgb(hsv), rgb, 1);
+		approximatelyEqualIterable(hsvToRgb(hsv), rgb, 1);
 	});
 });
 
 void describe("hunterToXyz", () => {
 	void it("should return `hunterToXyz(hunter) = xyz`", () => {
-		approximatelyEqualArray(hunterToXyz(hunter), xyz, 0.01);
+		approximatelyEqualIterable(hunterToXyz(hunter), xyz, 0.01);
 	});
 });
 
 void describe("labToLch", () => {
 	void it("should return `labToLch(lab) = lchab`", () => {
-		approximatelyEqualArray(labToLch(lab), lchab, 0.01);
+		approximatelyEqualIterable(labToLch(lab), lchab, 0.01);
 	});
 
 	void it("should return `labToLch(luv) = lchuv`", () => {
-		approximatelyEqualArray(labToLch(luv), lchuv, 0.01);
+		approximatelyEqualIterable(labToLch(luv), lchuv, 0.01);
 	});
 });
 
 void describe("labToXyz", () => {
 	void it("should return `labToXyz(lab) = xyz`", () => {
-		approximatelyEqualArray(labToXyz(lab), xyz, 0.01);
+		approximatelyEqualIterable(labToXyz(lab), xyz, 0.01);
 	});
 });
 
 void describe("lchToLab", () => {
 	void it("should return `lchToLab(lchab) = lab`", () => {
-		approximatelyEqualArray(lchToLab(lchab), lab, 0.01);
+		approximatelyEqualIterable(lchToLab(lchab), lab, 0.01);
 	});
 
 	void it("should return `lchToLab(lchuv) = luv`", () => {
-		approximatelyEqualArray(lchToLab(lchuv), luv, 0.01);
+		approximatelyEqualIterable(lchToLab(lchuv), luv, 0.01);
 	});
 });
 
 void describe("luvToXyz", () => {
 	void it("should return `luvToXyz(luv) = xyz`", () => {
-		approximatelyEqualArray(luvToXyz(luv), xyz, 0.01);
+		approximatelyEqualIterable(luvToXyz(luv), xyz, 0.01);
 	});
 });
 
 void describe("rgbToCmy", () => {
 	void it("should return `rgbToCmy(rgb) = cmy`", () => {
-		approximatelyEqualArray(rgbToCmy(rgb), cmy, 0.0001);
+		approximatelyEqualIterable(rgbToCmy(rgb), cmy, 0.0001);
 	});
 });
 
 void describe("rgbToHex", () => {
 	void it("should return `rgbToHex(rgb) = hex`", () => {
-		equal(rgbToHex(rgb), hex);
+		strictEqual(rgbToHex(rgb), hex);
 	});
 });
 
 void describe("rgbToHsi", () => {
 	void it("should return `rgbToHsi(rgb) = hsi`", () => {
-		approximatelyEqualArray(rgbToHsi(rgb), hsi, 0.0001);
+		approximatelyEqualIterable(rgbToHsi(rgb), hsi, 0.0001);
 	});
 });
 
 void describe("rgbToHsl", () => {
 	void it("should return `rgbToHsl(rgb) = hsl`", () => {
-		approximatelyEqualArray(rgbToHsl(rgb), hsl, 0.0001);
+		approximatelyEqualIterable(rgbToHsl(rgb), hsl, 0.0001);
 	});
 });
 
 void describe("rgbToHsv", () => {
 	void it("should return `rgbToHsv(rgb) = hsv`", () => {
-		approximatelyEqualArray(rgbToHsv(rgb), hsv, 0.0001);
+		approximatelyEqualIterable(rgbToHsv(rgb), hsv, 0.0001);
 	});
 });
 
 void describe("rgbToXyz", () => {
 	void it("should return `rgbToXyz(rgb) = xyz`", () => {
-		approximatelyEqualArray(rgbToXyz(rgb), xyz, 0.01);
+		approximatelyEqualIterable(rgbToXyz(rgb), xyz, 0.01);
 	});
 });
 
 void describe("xyzToAdobe", () => {
 	void it("should return `xyzToAdobe(xyz) = adobe`", () => {
-		approximatelyEqualArray(xyzToAdobe(xyz), adobe, 0.01);
+		approximatelyEqualIterable(xyzToAdobe(xyz), adobe, 0.01);
 	});
 });
 
 void describe("xyzToHunter", () => {
 	void it("should return `xyzToHunter(xyz) = hunter`", () => {
-		approximatelyEqualArray(xyzToHunter(xyz), hunter, 0.01);
+		approximatelyEqualIterable(xyzToHunter(xyz), hunter, 0.01);
 	});
 
 	void it("should return `xyzToHunter(xyz, C_2) = hunterC`", () => {
-		approximatelyEqualArray(
+		approximatelyEqualIterable(
 			xyzToHunter(xyz, getReference(StandardIlluminant.C_2)),
 			hunterC,
 			0.1
@@ -196,19 +187,19 @@ void describe("xyzToHunter", () => {
 
 void describe("xyzToLab", () => {
 	void it("should return `xyzToLab(xyz) = lab`", () => {
-		approximatelyEqualArray(xyzToLab(xyz), lab, 0.01);
+		approximatelyEqualIterable(xyzToLab(xyz), lab, 0.01);
 	});
 });
 
 void describe("xyzToLuv", () => {
 	void it("should return `xyzToLuv(xyz) = luv`", () => {
-		approximatelyEqualArray(xyzToLuv(xyz), luv, 0.01);
+		approximatelyEqualIterable(xyzToLuv(xyz), luv, 0.01);
 	});
 });
 
 void describe("xyzToRgb", () => {
 	void it("should return `xyzToRgb(xyz) = rgb`", () => {
-		approximatelyEqualArray(xyzToRgb(xyz), rgb, 1);
+		approximatelyEqualIterable(xyzToRgb(xyz), rgb, 1);
 	});
 });
 
@@ -223,6 +214,6 @@ void describe("xyzToYxy", () => {
 
 void describe("yxyToXyz", () => {
 	void it("should return `yxyToXyz(yxy) = xyz`", () => {
-		approximatelyEqualArray(yxyToXyz(yxy), xyz, 0.01);
+		approximatelyEqualIterable(yxyToXyz(yxy), xyz, 0.01);
 	});
 });

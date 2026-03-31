@@ -11,7 +11,7 @@ const c0 = 1 / gamma;
  * @public
  */
 export default function xyzToAdobe(
-	color: Xyz
+	color: Readonly<Xyz>
 ): [number, number, number] & Adobe {
 	const i0 = color[0] / 100;
 	const i1 = color[1] / 100;

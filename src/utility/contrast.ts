@@ -11,7 +11,10 @@ import relativeLuminance from "./relativeLuminance.js";
  * @see {@link https://www.w3.org/WAI/standards-guidelines/wcag/ | WCAG 2 Overview}
  * @public
  */
-export default function contrast(color0: Rgb, color1: Rgb): number {
+export default function contrast(
+	color0: Readonly<Rgb>,
+	color1: Readonly<Rgb>
+): number {
 	// Intermediate values.
 	const i0 = relativeLuminance(color0);
 	const i1 = relativeLuminance(color1);

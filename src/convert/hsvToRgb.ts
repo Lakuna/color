@@ -7,7 +7,9 @@ import type Rgb from "../types/Rgb.js";
  * @returns An sRGB color.
  * @public
  */
-export default function hsvToRgb(color: Hsv): [number, number, number] & Rgb {
+export default function hsvToRgb(
+	color: Readonly<Hsv>
+): [number, number, number] & Rgb {
 	const s = color[1];
 
 	const v = color[2];

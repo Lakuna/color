@@ -1,3 +1,5 @@
+import { describe, it } from "node:test";
+
 import {
 	deltaC,
 	deltaCmc,
@@ -9,16 +11,11 @@ import {
 	rgbToXyz,
 	xyzToLab
 } from "../dist/index.js";
-import { describe, it } from "node:test";
-import { ok } from "node:assert/strict";
+import { approximatelyEqual } from "./shared.js";
 
 const a = xyzToLab(rgbToXyz(hexToRgb(0x50c878)));
 const b = xyzToLab(rgbToXyz(hexToRgb(0xc80815)));
 const c = xyzToLab(rgbToXyz(hexToRgb(0x5078c8)));
-
-const approximatelyEqual = (actual, expected, delta) => {
-	ok(Math.abs(actual - expected) < delta);
-};
 
 void describe("deltaC", () => {
 	void it("should return `deltaC(a, b) = 22.55`", () => {

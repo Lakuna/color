@@ -7,7 +7,7 @@ import type Rgb from "../types/Rgb.js";
  * @see {@link https://en.wikipedia.org/wiki/Web_colors | Web colors}
  * @public
  */
-export default function isWebSafe(color: Rgb): boolean {
+export default function isWebSafe(color: Readonly<Rgb>): boolean {
 	return (
 		color[0] % 0x33 === 0 && color[1] % 0x33 === 0 && color[2] % 0x33 === 0
 	);

@@ -12,7 +12,7 @@ const d = 360;
  * @public
  */
 export default function analogousLch(
-	color: Lchab,
+	color: Readonly<Lchab>,
 	subdivisions?: number
 ): [[number, number, number] & Lchab, [number, number, number] & Lchab];
 /**
@@ -23,11 +23,11 @@ export default function analogousLch(
  * @public
  */
 export default function analogousLch(
-	color: Lchuv,
+	color: Readonly<Lchuv>,
 	subdivisions?: number
 ): [[number, number, number] & Lchuv, [number, number, number] & Lchuv];
 export default function analogousLch(
-	color: Lchab | Lchuv,
+	color: Readonly<Lchab | Lchuv>,
 	subdivisions = 12
 ):
 	| [[number, number, number] & Lchab, [number, number, number] & Lchab]

@@ -7,7 +7,9 @@ import type Cmyk from "../types/Cmyk.js";
  * @returns A CMY color.
  * @public
  */
-export default function cmykToCmy(color: Cmyk): [number, number, number] & Cmy {
+export default function cmykToCmy(
+	color: Readonly<Cmyk>
+): [number, number, number] & Cmy {
 	const k = color[3];
 
 	return [

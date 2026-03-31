@@ -11,16 +11,20 @@ const c0 = 180 / Math.PI;
  * @returns A CIELCh color.
  * @public
  */
-export default function labToLch(color: Lab): [number, number, number] & Lchab;
+export default function labToLch(
+	color: Readonly<Lab>
+): [number, number, number] & Lchab;
 /**
  * Convert the given CIELUV color to a CIELCh(uv) color. Based on the EasyRGB pseudo-code.
  * @param color - The CIELUV color.
  * @returns A CIELCh color.
  * @public
  */
-export default function labToLch(color: Luv): [number, number, number] & Lchuv;
 export default function labToLch(
-	color: Lab | Luv
+	color: Readonly<Luv>
+): [number, number, number] & Lchuv;
+export default function labToLch(
+	color: Readonly<Lab | Luv>
 ): [number, number, number] & (Lchab | Lchuv) {
 	const a = color[1];
 

@@ -16,8 +16,8 @@ const c2 = 7.787;
  * @public
  */
 export default function labToXyz(
-	color: Lab,
-	ref: Xyz = getReference(StandardIlluminant.D65_2)
+	color: Readonly<Lab>,
+	ref: Readonly<Xyz> = getReference(StandardIlluminant.D65_2)
 ): [number, number, number] & Xyz {
 	const i0 = (color[0] + 16) / 116;
 	const i1 = i0 ** 3;

@@ -15,8 +15,8 @@ const c1 = 70 / 218.11;
  * @public
  */
 export default function xyzToHunter(
-	color: Xyz,
-	ref: Xyz = getReference(StandardIlluminant.D65_2)
+	color: Readonly<Xyz>,
+	ref: Readonly<Xyz> = getReference(StandardIlluminant.D65_2)
 ): [number, number, number] & Hunter {
 	const rx = ref[0];
 
